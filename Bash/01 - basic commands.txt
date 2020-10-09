@@ -20,6 +20,7 @@ chmod [permissions] [file/directory] - change permissions
 
 
 
+we need your full name bro - trokut
 David Đorđević - Dejviddd
 Milica Daljić -  milicadaljic
 Bojan Gerekarovski || Bojchio
