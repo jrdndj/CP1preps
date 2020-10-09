@@ -21,6 +21,7 @@ chmod [permissions] [file/directory] - change permissions
 
 
 David Đorđević - Dejviddd
-
-
+Milica Daljić -  milicadaljic
+Bojan Gerekarovski || Bojchio
+Matteo Dunis - blahblah
 
