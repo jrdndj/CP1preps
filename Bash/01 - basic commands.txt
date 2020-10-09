@@ -20,4 +20,12 @@ chmod [permissions] [file/directory] - change permissions
 
 i will kill you
 
-Haris Alispahic , HagridLow
+
+Haris Alispahic - HagridLow
+Konstantinos Fasouras - 89201172
+we need your full name bro - trokut
+David Đorđević - Dejviddd
+Milica Daljić -  milicadaljic
+Bojan Gerekarovski - Bojchio
+Matteo Dunis - blahblah
+
