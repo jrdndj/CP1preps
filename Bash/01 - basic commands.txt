@@ -19,10 +19,10 @@ mv [file] [target] - rename [file] to [target] OR move [file] to [target]
 chmod [permissions] [file/directory] - change permissions 
 
 
-
+Konstantinos Fasouras - 89201172
 we need your full name bro - trokut
 David Đorđević - Dejviddd
 Milica Daljić -  milicadaljic
-Bojan Gerekarovski || Bojchio
+Bojan Gerekarovski - Bojchio
 Matteo Dunis - blahblah
 
