@@ -18,4 +18,8 @@ more [file] - show the content of the [file]
 mv [file] [target] - rename [file] to [target] OR move [file] to [target]
 chmod [permissions] [file/directory] - change permissions 
 
+
+
+Bojan Gerekarovski || Bojchio
 Matteo Dunis - blahblah
+
