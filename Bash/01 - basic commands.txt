@@ -19,7 +19,7 @@ mv [file] [target] - rename [file] to [target] OR move [file] to [target]
 chmod [permissions] [file/directory] - change permissions 
 
 
-
+Milica Daljić -  milicadaljic
 Bojan Gerekarovski || Bojchio
 Matteo Dunis - blahblah
 
