@@ -1,0 +1,143 @@
+Week 08 Notes.txt
+
+C procedural programming language
+
+many types of programming languages
+ object-oriented
+ imperative/functional programming
+
+ procedural, step by step
+
+ computers are very powerful computing devices 
+ compute 
+
+ computers can only understand lowlevel languages (binary/machine language)
+ 01 0= off, 1=on
+ 00100010010001 = this probably means something
+
+ humans speak natural language or highlevel language 
+ dude make me a sandwich 
+
+ computers cannot understand natural language
+
+ programming languages + interpreters = translators 
+
+ today we are going to learn C 
+
+ programs are usually .c extension
+
+ test.c
+
+c program high level language
+this is converted into 
+
+test.o or test.obj
+
+build/run
+
+text.exe
+
+#include<stdio.h>
+^ hash/hashtag/pound/octotorphe
+ ^ it is calling a file (usually a header file) that contains somethin
+         ^stdio = standard input output
+              ^.h = header file
+we want to use the header file that contains basic input and output instructions in C 
+
+stdlib.h
+cstring.h
+conio.h
+
+void main(){
+	
+}
+
+int main()
+    ^main is a function that gcc runs to make your c program work
+    ^every standalone c program has main
+    ^this function returns int type
+^ return type
+^ we use int main to help programmers debug
+
+function is something that returns a value
+
+3+4 = 7
+^ function
+      ^ is a return value 
+
+
+printf("Hello World! \n");
+                     ^escape sequence
+                         ^ terminator
+^printf is defined in stdio.h
+       ^() put parameters/arguments inside it
+        ^ "  " is called a literal
+
+
+if you are using windows gcc
+> gcc program.c
+> program
+
+if codeblocks
+new project
+new file
+type your code
+build and run
+in the console it should print the output
+
+int main(){
+	
+}//endmain
+
+comments in C
+internal documentation 
+
+comments are ignored by the compiler
+
+single-line comments
+   // inline comment
+   /* this is another single line comment */
+block comments
+/* 
+ look
+  something
+  like this
+  */
+
+single line comments usually describe the code below them/beside them
+
+in terms of grading especially your homeworks
+
+if your code runs properly - you get 70 points
+if your code has good comments - you get +30points
+
+common input in c is the scanf function
+
+scanf("%_", &_);
+%c, %f, more on that soon
+
+scanf("%d", &num);
+            ^ ampersand
+              address of num 
+              where is it in the memory 
+       ^ it should be in d=decimal format
+
+int num;
+     ^computer set memory for an integer whose name is nnum
+
+variables/identifiers 
+the computer allocates memory 
+|5 |  |  |  |  |
+ ^num
+
+
+
+
+
+
+
+
+
+
+
+
