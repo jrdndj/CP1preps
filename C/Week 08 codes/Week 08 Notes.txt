@@ -1,0 +1,91 @@
+Week 08 Notes.txt
+
+#include<stdio.h>
+^ hash/pound/hashtag include
+ <stdio.h>
+  ^ standard input output header (.h) its a header file 
+  you should be able to use standard print and input methods
+
+  the standard print method in c is called printf
+
+  printf("Hello World");
+  ^printf command
+         ^ it is receiving a parameter
+         " " > we call this a literal
+                       ^ semi-colon ; end of instruction
+
+int main(){
+
+}
+main is the primary function
+keyword int, main is a function and it "returns" someting of type integer
+
+3+4 = 7
+function returns 7
+int main() is a function that returns something of integer type
+
+\n escape sequence, telling the compiler to create a newline
+
+
+
+the computer uses machine language (low level programming language) binary language 10's
+
+we humans use natural/high level language
+make me a sandwich
+
+the computer and the human cannot understand each other 
+
+in order for them to understand each other we need an translator (interpreter)
+
+when we compile a program (such as .c) we are translating that program for the computer to understand
+
+
+
+for basics:
+
+if using windows (terminal/command prompt)
+open terminal
+go to the location of your file for example Desktop
+> cd Desktop
+
+if you using gcc then we use the
+> gcc filename.c
+
+Windows gcc creates an object file and this object file becomes an executable (.exe)
+
+filename.o (filename.obj) filename.exe
+
+>filename 
+>filename.exe
+
+>gcc hello.c
+> hello
+Hello World! 
+
+if using Mac/Unix/Linux (terminal )
+> gcc filename.c
+> ./a.out
+Hello World!
+
+Visual Studio/Dev C/CodeBlocks IDE
+>Compile>Build>Run/Test
+
+you should be able to run these c programs natively 
+
+for Windows users 
+#include<conio.h>
+
+getch();
+getche();
+
+//may not work for unix based system
+
+
+
+
+
+
+
+
+
+
