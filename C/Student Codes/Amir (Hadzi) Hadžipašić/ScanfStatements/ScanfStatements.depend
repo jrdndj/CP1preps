@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1606119688 source:c:\users\hadzi\desktop\scanfstatements\main.c
+	<stdio.h>
+	<stdlib.h>
+
