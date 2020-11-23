@@ -1,13 +1,12 @@
-//modify this code to add subtraction, multiplication, division and a combination of 2 binary operators
-
 #include<stdio.h>
 
 /* this program will allow us to use 
 operators in C */
 int main(){
 	//we should make our variable names descriptive
-	int adder1, adder2;
-	int sum;
+	int adder1, adder2, num1, num2;
+	int sum, result=0;
+	//  ^dec  ^init
 	//by default these variabls have no assigned value
 	//depending on the computer, it may assign a random value
 
@@ -24,6 +23,16 @@ int main(){
 	printf("\nThe sum of %d + %d is %d \n", adder1, adder2, sum);
 	// \n newline
 	// \t
+
+	//interactive input
+	printf("\n Please enter value of num1: ");
+	scanf("%d", &num1);
+	//the user input is stored and saved in var num1
+	printf("\n Please enter value of num2: ");
+	scanf("%d", &num2);
+
+	result = num1 * num2; 
+	printf("\n The product of %d * %d is %d \n", num1, num2, result);
 
 }//endmain
 
