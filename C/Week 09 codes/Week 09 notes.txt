@@ -1,0 +1,137 @@
+Week 09 notes
+
+arithmetic operators
+
+binary operators
+
+ + - * /
+
+ if statements
+
+ conditional operators (binary)
+
+ condition and an outcome depending on the condition
+
+ if the input number is a prime number, do something
+ if it is not, do something else 
+
+ < less than
+ <= less than or equal (happy face)
+ > greater than
+ >= greater than or equal (sad face)
+
+ = assignment operator
+ == is equal to
+ != is not equal to
+
+  && logical AND (ampersand)
+  || logical OR (pipe) 
+  to mix and match multiple conditions
+
+ how do we input a number that is a 3 digit number?
+
+hungarian notation 
+
+	dUserInput
+	 ^
+	  descriptive name for the identifier (camelcase) 
+	^data type %d
+
+	fvalueofPi
+	 ^
+	^ %f
+
+condition statements 
+  IF statement
+  if (<condition>){
+  	//do something if true
+  }
+  
+  IF-else statement
+  if (<condition>){
+  	//do something if true
+  }
+  else {
+    // do something if not true 
+  }
+  //something else here 
+
+  If-ELSE-IF statement
+  if (<condition>){
+  	//do something if true
+  }
+  else {
+    if (<condition>){
+  	//do something if true
+  	}//endif
+  	else {
+    // do something if not true 
+  	} //endifelseelse
+  }
+
+  IF-ELSE-ELSE
+  if(condition){
+  	//do something here
+  }
+  else if(condition){
+  	//do something ehere
+  }
+  else{
+  	//do something 
+  }
+
+  how do we know if a number is divisible by n
+
+  is 4 divisible by 2? 
+
+  if there is no remainder then it is divisible
+
+  modulo (plural), modulus (single) returns the remainder
+
+  n / m quotient
+  n % m remainder
+
+  remainder = n % m 
+  then do an if statement 
+
+  #define CHECKER_NUM 6
+  ^ 6 is permanently assigned to checker
+
+  constant int CHECKER_NUM = 6;
+
+  CodeChallenge 2
+
+  A C program that will allow the user to input integers. The integer input can be a 2,3 or 4-digit integer. Reject if it is a 1 digit integer. Reject if it is 5-digits or more. 
+  Integers must be positive. 
+  If the integer has "23" in it, print "Jordan"
+  If the integer has "24" in it, print "Kobe"
+  Else, print "useless". 
+
+  23 Jordan
+  24 Kobe
+  1024 Kobe
+  5231 Jordan
+  2400 Kobe
+  5555 useless
+  55 useless
+  555 useless
+
+  ones, tens, hundreds, thousands, ten-thousands
+
+  this is due by 0930
+
+  submit in #discuss-ma
+
+  you may go on a short break and then resume programming 
+
+  first person to submit gets more points 
+
+
+
+
+
+
+
+
+
+
