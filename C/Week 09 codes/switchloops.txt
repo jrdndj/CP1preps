@@ -1,0 +1,113 @@
+switch statements
+loop statements - while, do while statements
+menu, user cntrolled behaviour 
+character inputs 
+code challenge 
+
+
+next week 
+arrays and for loops 
+
+IF statements = conditional constructs, decision, control in our logic
+many IF statements, logical operators (AND, OR) we get to play with many or multiple levels of logic
+since IF statements, have hierarchy - some logical statements are more important and some are less important - IF statements (first or outer) are more important inner or lower if statements are less important. 
+
+switch statements/constructs - each condition are treated equally same outcome for multiple conditions, different conditions based on different outcomes 
+
+switch( expression ) {
+
+	case <value> :
+		statements here
+		break; 
+	case <value> : do something break;
+	default: do something break;  
+	
+}//endswitch
+
+switch is best compared with values of the same type 
+
+int, case int
+
+if ( expression value OR expression value OR )
+
+
+character data types
+	char - single character
+	as compared to int data types, we use the single quote '' to compare values
+
+	num == 1
+	letter == 'c' 
+	letter == 'C'
+
+	%c scanf, printf
+
+	word (multiple characters)
+	"praktikum" - string
+	C-string (array of characters)
+	string special type 
+
+loops in C
+
+	while, do-while, for-loop. 
+	while, do-while, 
+
+	while loop is the most common loop 
+
+	loop = repetition (repeat), iteration (iterate), do again, keep doing this until.... 
+
+	while ( condition ){
+	//do something here if the condition is true 
+	//if the condition is not true, then it will not loop/repeat
+
+	}
+
+	do {
+	//statements here
+	//it will do everything once, and will only repeat if the condition is true. 
+
+	}while( condition ); //there is a semicolon 
+
+	to control our loops we shall use conditions. counters = when we do for loops 
+
+
+	Code Challenge for the BF group
+	use switch, loops, if statements, constants
+
+	Guessing Game
+	A C program that will allow the user to guess a "secret_number". The secret_number is a defined constant that only the programmer knows. The user will input a number. If the user entered the secret_number then game over (the user was able to guess it). 
+
+	If the user entered an input that is lower than the secret_number, the computer should say "go higher". if the user entered an input that is higher than the secret_number, the computer should say "go lower". 
+
+	If the user has guessed the secret_number correctly, the user can decide if they want to play a next round or quit. the user can play a next round but the secret_number increased or decreased depending on the previous guess of the user. if the previous guess of the user (before getting it right) was lower, then the new secret_number will be lower by 10. If the previous guess of the user was higher, then the new secret_number will be higher by *4. 
+
+	The user can quit by simply typing Q. The game only ends if the user has guessed the correct secret_number or has types Q. 
+
+	If you know goto, you cannot use goto. 
+
+	instead of pasting the code, please submit the .c file with the following filename format
+
+	surname_first_guess01.c
+
+	deja_jordan_guess01.c 
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
