@@ -1,0 +1,143 @@
+Notes 07.12.2020
+
+We shall cover 
+
+For-Loops and Strings (C-Strings). 
+
+Last week we covered loops using while and do-while 
+2-3% of programmers do-while 
+
+do-while and while loops are loops/constructs where the behavior of the loop
+is usually managed by a terminating condition. 
+
+if the condition is true, then keep looping if not then stop/break the loop. 
+
+for-loops are special type of loops which have a predefined structure. 
+
+	syntax of the forloop follows the given structure:
+
+	for ( [<initialization>]; <condition>; <behavior> ) {
+		//block inside 
+	}
+
+	initialization 		int n = 1;
+	condition			n < 5;
+	behavior			increment (+), decrement (-)
+						n++				n--
+						^ update the current value of n by 1
+						so n = 1
+						by executing n++ (shorthand operator)
+						the new value of n is 2. 
+
+											memory		n < 5			screen
+	for ( int n=1; n < 5; n++ ){			n = 5		F				Hello World! 
+	      ^a       ^b     ^c 											Hello World! 
+		printf("\nHello World! "); 										Hello World!
+	}																	Hello World!
+
+	in terms of sequence what actually happens is
+
+	before you enter the loop, you execute a
+	you will check the condition b if it is true 
+	if the condition is true, enter the loop and do something 
+	after executing the loop, it will do c
+	we go back to b 
+
+	loop where you control the loop based on multiple variables
+
+	initialization can be optional
+	condition and behavior are always required 
+	
+	int n = 100
+
+	... like 100 lines
+
+	for ( ; n < 5; n++ ) {
+		printf("\nHello World! "); 
+	}
+
+	programming concept
+
+	counter = kitchen counter, bathroom counter (surface)
+	in programming the counter concept count-er (this is something used to count)
+	pointer (this something used to point) 
+
+	you can have loops inside a loop  (nested loops) 
+
+	eg:  we want to print "hello world" based on the number of times that the user wants
+
+	loop inside a for loop 
+
+	for(){
+	 do something
+	 for(){
+	 }
+	}
+
+	some other applications of for loop
+
+	*
+	**
+	***
+	****
+	*****
+	****
+	***
+	**
+	* 
+
+	half diamond problem
+	full diamond problem 
+
+	is using Strings 
+
+	C-Strings  (words in C)
+
+	in declaring them we use an array 
+
+	an array is a complex data type 
+
+	primitive data types int, char
+
+	int n = 5
+
+	|5|
+
+	int n = 32766
+	|32766| 
+
+	array = container of homogenous data types
+	array = container of same data types
+
+	char sWord[10]; 
+		^ we have an array is character data types and it has 10 slots
+
+	in the memory of the computer
+
+	index = what we use to point to a specific part of an array
+	weird enough, computer scientists use a zero-index 
+	computer scientists begin counting from 0 binary language 0 1 
+	|0|1|2|3|4|5|6|7|8|9|
+	|b|a|n|a|n|a|0|0|0|\0| 
+				     ^8th element (9th ninth element)
+	   ^1th element (2nd element)
+	 ^0th element (1st element)
+
+	 we can assign values in a memory slot by using the index/indices
+
+	 sWord[0] = 'a';
+	 sWord[5] = 'b';
+
+	 char sWord[10] = { 'j', 'o', 'r', 'd', 'a', 'n' };
+	 the end of the string is usually assigned the '\0'
+	 //character initialization
+
+	 char sWord[] = "banana";
+	 //6 characters
+	 //string initialization
+
+	 when we declare arrays/C-strings = we need to set the size when we declare it 
+
+	 We will elaborate more on strings soon (next meeting).
+
+	 How to manipulate strings using for loop. 

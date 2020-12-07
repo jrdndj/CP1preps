@@ -1,0 +1,13 @@
+Code Challenges 07.12.2020
+
+Code Challenge for MA-EN Group
+
+Write a C program thats does the following:
+- ask the user how to enter 10 integer inputs, store them in an integer array
+- print the list of 10 integer inputs
+- after printing, sort the contents of the array in descending order (if) 
+- print the newly sorted array of inputs. 
+
+Deadline is within the day 07.12.2020
+
+submit your code in #discuss-ma 
