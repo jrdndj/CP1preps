@@ -1,0 +1,24 @@
+Class Notes 11122020
+
+Today we shall cover C-String operations 
+
+	This coming = we shall have our first official homework in C 
+	I will upload a pdf in eclassroom and open an assignment link. The PDF will contain 15 problems (easy to hard). You must solve as many as you can within the 24 hours. Submit the C programs in e-classroom. More details and instrucitons will be uploaded on Monday. There will be no LIVE class of CP1 on Monday. 
+
+	Second midterm will be around Jan 11-15. Final date will be announced soon. 
+
+	Final exam will be around Jan 18 onwards. 
+
+	#include<string.h>
+
+	strlen = get the length of the string 
+	strupr (windows only boohoo) = converts the entire string to uppercase
+	toupper + forloop
+	strcat = string concatenate
+	strcpy = copies the value of a string and assign it to another
+	strcmp = comparing strings
+	strchr = find a specific character in a string and print the substring that contains it
+	strstr = find a substring inside a string
+
+	gets() = get string, we can now use spaces in our inputs
+	puts() = put string (printing the string)

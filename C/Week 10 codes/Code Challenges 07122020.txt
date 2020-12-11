@@ -10,4 +10,43 @@ Write a C program thats does the following:
 
 Deadline is within the day 07.12.2020
 
-submit your code in #discuss-ma 
+submit your code in #discuss-ma
+
+Code Challenge for RIN-EN-G1
+
+Write a C Program that does the following:
+- ask the user to enter 10 integer inputs, store them in an array. 
+- print the 10 numbers
+- compute and print the average of the 10 numbers
+- scan the array of integers and look for even numbers
+- transform each even number into 0 
+- print the latest list of 10 numbers
+
+Deadline is within the day 07.12.2020
+
+submit your cde in #discuss-rin-en-g1
+
+Code Challenge for RIN-EN-G2
+
+Write a C program that does the following:
+- ask the user to enter a string word input. use C-strings. 
+- iterate through the array and make sure the charaters are arranged in alphabetical order. 
+
+for example:
+if the input is "BANANA" then the output should be "AAABNN". 
+-print the resulting array/word
+
+
+Code Challenge for RIN-EN-G3
+
+Write a C program that does the following: 
+- ask the user to enter a string word input. use C-strings. minimum characters: 7, maximum characters: 25
+- then ask the user how many characters do they wish to analyze at a given time. 
+- for example: user enters "3". the program will now analyze the string 3 characters at a time and print all the 3 letter groupings that can be found in the word. then count the number of combinations printed. 
+
+sample input: 
+word: onomatopeia
+number: 3
+the combinations are 
+ono, nom, oma, mat, ato, top, ope, pei, eia. 
+number of combinations: 9

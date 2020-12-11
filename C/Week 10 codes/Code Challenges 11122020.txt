@@ -1,0 +1,99 @@
+Code Challenges 11122020
+
+Code Challenge for RIN-EN-G1
+
+ 	Japanese Haiku
+
+ 	Create a C Program that allows the user to enter a Japanese Haiku. 
+ 	A Japanese Haiku is a poem that has 3 lines. And the lines have 5-7-5 syllables each. 
+ 	No need to check dont worry. 
+
+ 	Ask for the name of the user. 
+
+ 	Analyze the program by doing the following:
+
+ 	count the duplicate words if there are any and print them
+ 	if "will" was used 7 times. 
+
+ 	the program should check if the sentences are in sentence case. The sentence begins with a Upper case letter and ends with a period. If not, automatically add the period. 
+
+ 	In the end print the edited poem/haiku with the name of the user concatenated on it. 
+
+ 	Input:
+ 	In the moonlight,
+	The color and scent of the wisteria
+	Seems far away.
+
+	name: Jordan 
+
+	output:
+	
+	the word "the" was used three times. 
+
+	In the moonlight,
+	The color and scent of the wisteria
+	Seems far away. -Jordan
+
+
+
+Code Challenge for MA 
+
+due within the day
+
+Write a C Program that allows the user to accept 4 equations. 
+Hint: 1 variable per equation. 
+Your program should be able to do the following:
+> Compare if your equations are the same (is eq 1 same as eq2 and es3 and so on)
+> Print the number of characters per equation
+> Count the number of basic operators (+, -, *, / only). 
+> If possible, put all + operators in eq1, - operators in eq2, * in ep3 and / in eq4
+> Print the new 4 operations. 
+> hint: use strcmp, strstr/strchr, strcat. You may need to use an extra string as buffer.
+
+    sample input: 
+> y + c
+> z + c - y * d
+> a * b + d
+> b / a + 1
+
+output
+> 5
+> 13
+> 9
+> 9
+
+> eq1 = y + c + z + d + 1
+> eq2 = - y 
+> eq3 = a * b * d
+> eq4 = b / a 
+
+Code Challenge for BF 
+
+		Write a  C program that accepts two strings from the user.
+		String1 and String 2 is a sequence of characters that are encoded in MD5 Hash. It a combination of characters and digits and has a maximum size of 32 characters. For reference check this site: 
+
+		https://www.md5hashgenerator.com 
+
+		String 1 and String 2 must be different. 
+
+		Challenge:
+
+		Using string operators and arrays, find longest common substring (greater than size 3. if none, then print 0) between the two inputs. If there are many, print all these substrings. 
+
+		Example:
+
+		string 1: f814893777bcc2295fff05f00e508da6 
+		string 2: b59c6e9b344bae1a36fe777a42889265  
+
+		longest common substrings:
+		777 can be found on both strings 
+
+
+
+
+
+
+
+
+
+
