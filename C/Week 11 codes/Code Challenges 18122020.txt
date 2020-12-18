@@ -1,0 +1,62 @@
+Code Challenges 18.12.2020
+
+Code challenge for RIN-EN-G1
+
+Create a C program that performs the following task:
+> receive two integer inputs from the user
+> print the sum, difference, product and quotient of the two integers
+> use user-defined functions (add, subtract, multiply, divide)
+> use local variables
+> however you cannot use the * and / operators anywhere in the program
+
+Hint: multiplication is repeated addition. division is repeated subtraction.
+
+=====
+
+Code challenge for RIN-EN-G2
+
+Create a C program that performs the following task: 
+> receive an array of 5 numbers from the user
+> print the maximum and minimum values in the array
+> print the average of the values in the array
+> use user-defined functions
+> use local variables
+
+=====
+
+Code challenge for BF
+
+Create a C Program that performs the following task: 
+> ask the user to input two c-strings 
+> check if the two strings should have the same number of characters. if not, ask the user to enter another input c string. 
+> once accepted, check if the two strings are anagrams. 
+> use user-defined functions, local variables. 
+
+Hint: An anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once 
+
+======
+
+Code challenge for MA
+
+Create a C Program that performs the following task:
+> receive an integer input from the user
+> check if the integer input is a 3 digit integer. ask for another one if it is not. 
+> check if the input is an Armstrong number. 
+> sample input: 371
+> sample output: The number 371 is an armstrong number. 
+
+Hint: Armstrong number is a number that is equal to the sum of cubes of its digits. 153 = 1^3 + 5^3 + 3^3. 
+
+=====
+
+Code challenge for RIN-EN-G3
+
+Create a C program with functions that performs the following task: 
+> receive an input string from the user. this will be used as the name of a hero character.
+> receive number input from the user. this will be used to get attributes of the hero. use this function to get the strength, intelligence, agility values of the user. 
+> compute for the HITPOINTS of the hero based on their strength value. value is strength x 21. print it. 
+> compute for the MANAPOINTS of the hero based on their int value. value is intel x 19. print it. 
+> compute for the DAMAGE REDUCED FACTOR of the hero based on their agi value. value is agi x 0.2. print it. 
+> for the previous 3 compute values, use only one function to 2 parameters: the attribute and the multiplier. return the value and print it. 
+> use functions. the multiplication symbol should only be used once in this entire program!
+> use local variables and parameter passing. 

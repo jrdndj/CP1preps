@@ -1,0 +1,187 @@
+Classnotes 18.12.2020
+TMA - Tentative Schedule
+
+18 Dec  - Pointers and functions
+21 Dec - multidimensional arrays and records (structures)
+25 Dec - holiday
+28 Dec - linkedlist
+01 Jan - holiday
+04 Jan - homework 2
+08 Jan - practice lessons
+11 Jan - midterm 2
+15 Jan - release grades
+18 Jan - final exam 
+
+Some reminders and things to note:
+
+	Midterm2 exam format will be finalized tomorrow. Details will be announced in class on Monday. 
+	Most likely format: handson(keyboard, computer), live (happening in realtime, online) programming exam. 
+	Results will be immediately available. Run 60%, the rest is for comments, variable, logic, etc. 
+	Midterm2 exam coverage will be everything C. 
+
+	Final Exam - both bash and C. same format as midterm 2. 
+
+	pass both midterms (average of both has to be 50% at least), each midterm has to be 30% at least + positive grade on homeworks = no need for final exam. you may take the final exam for a higher grade (at most once). 
+
+	if you fail midterms, you need to take the final exam for a positive grade and take another time for a higher grade. 
+
+	Homework 1 on C - results by Dec 25 
+	The goal of HW is to give you enough practice exercises while at the same time earning your score for your grades. It doesnt matter if you answered few or many, your score will be based on what you submit. 
+
+	There are 4 problems in HW1 (out of 17), 2 of them might appear in midterm2 and 2 in the final exa. 
+
+#discuss-ma for comments suggestions, questions
+#live-class-help for debugging purposes
+#notes-resources fr the code
+notes will be uplaoded in github
+#today-i-learned
+#memes
+#feedback 
+
+	Today's Lesson 	
+	Functions (user-defined functions) and Pointers 
+	Scoping, Parameter passing (value, reference) 
+
+	C file - hierarchy (scope of the elements) - program01.c 
+		pre processor headers (#include, #define) 
+			stdio.h: printf(), scanf(); if(), for()... etc
+		variables (global)
+		main( function )
+			variables (these variables local to main)
+			statements
+		function 1
+			variables
+		function 2
+			variables 
+
+		Predefined functions = standard C libraries
+		User-defined functions = functions designed by the developers based on their needs
+
+		scope (scoping) = that describes how a variable is accessible 
+
+		local scope = access is only limited to its parent file/class/function
+		global scope = shared within all functions/elements of the file/class
+
+		party, we declare guests, we know how much resources we need 
+
+		global variables
+			pros: these are accessible anywhere in the program 
+			cons: these variables consume memory, allocated during the entire run time of the program 
+
+		local variables
+			pros: the amount of memory it consumes is lesser during run time (only the functions that need it access it)
+			cons: the variables are not accesisble to other programs/functions so we need to call/pass/reference these variables 
+
+		sharing local variables but at the same time still save memory 
+			pass parameters by value or be reference
+			use pointers 
+
+		Why do we need functions? 
+		1. We dont want spaghetti code
+		x goto
+		x continue 
+		/ break (switch, loops)
+		code is inefficient, code does not become reliable, code is not reusable 
+		using functions addresses these problems 
+
+		2. WET and DRY
+		WET = write everthing twice (again)
+		DRY = dont repeat yourself 
+		We use functions in order to make our code DRY so it doesnt get WET 
+
+		3. You gotta learn how to walk before you gotta learn how to run 
+		> java python sort(), split(), switch()
+		> help develop specific librarires for specific purposes 
+
+		We want our code to be reusable and recyclable. 
+
+		Functions (methods, procedures, modules, user-defined functions)
+			main is "user defined function", its pre labelled 
+			predefined - it went with the cmpiler and standard libraries
+			user-defined - the developer
+			functions have declaration, definition, call
+			you call functions if you want to use them 
+
+		function declaration
+			similar to variable declaration 
+			has a partner definition 
+			<return type> <function name>( [<data type>] );
+												^ receiving value
+			double getAverage();
+			int computeSum( int ); 
+			                 ^ it receives an int data type
+			     ^name of the function is computeSum()
+			  ^ this function returns something of data type int
+			void printNumber();
+			  ^ this statement prints but doesnt return anything 
+			we put declarations after headers and before main 
+
+		function definition 
+			codeblock that describes how you want your function to behave/run
+			inside it you put instructions, commands
+			depending on the type you put a return statement
+			functions can only return one value at a time. 
+			the statements can call other functions 
+			the order of declaration should be the same as the order of the definition
+
+		function call
+			is the command we use if we wish to use or execute a function (or make it run)
+			usually it inside main, or inside another function, inside itself (recursion)
+
+			<function name>([<param>]); 
+			fAve = getAverage(); 
+			  ^ getAverage() is ran and it returns a value that is assigned to fAve
+
+			 computeSum(nNum1); 
+			            ^ computeSum is ran and it receives nNum1 from the caller 
+
+		pass parameters by value 
+
+		int dNum = 0;
+
+		| | | |0| | | | 
+		       ^ dNum 
+		   computer allocates memory for dNum (from its many resources)
+		   dNum is assigned an address is poining to that specific slot of memory 
+		   dNum is only accessible to its parent, other functions cannot access it 
+		   dNum has an address that can be made accessible, with the help of pointers
+		   dNum has a pointer that points to the address (&dNum) 
+
+		   Pointers are special unary operators that deal with addresses
+		   (recall: - negative)
+		   * asterisk if an variable has * then it is a pointer 
+
+		   <data type> *<var name>; 
+		   <data type> <var name>*;
+
+		   int dNum = 0; 
+		   int *dPtr; //pointing to an integer 
+
+		   int dNum = 0, *dPtr, dNum2; 
+
+		   * = get the value that this pointer is pointing to 
+		   & = is the address 
+		   use * when declaring or printing
+		   no * when assigning & 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
