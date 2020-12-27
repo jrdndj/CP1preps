@@ -1,0 +1,25 @@
+/*Problem 07.c
+Request the user to enter one or two-digit integers, then print that input but three times, until the
+user enters -999. If the user enters ‘1’ then it should print “111”. If the user enters ‘8’ then it
+should print ‘888’. The program will never stop asking for an input until the user enters 999.
+*/
+#include<stdio.h>
+int main(){
+//declaring variables
+int n;
+
+while(1==1){
+    if(n==999){
+    break;
+    }//end if
+else{
+    printf("Enter a number:");
+    scanf("%d", &n);
+    printf("%d%d%d\n",n,n,n);
+    continue;
+}//end else
+}//end while
+
+
+return 0;
+}//end main

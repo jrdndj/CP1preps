@@ -1,0 +1,56 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+int main()
+{
+//asking the user for kind of animal
+    char animal;
+        printf("Hello User, what pet do you have? \n");
+        printf("\n D for dog,\n C for cat, \n B for bird,\n R for reptile, \n something else for other animal: \n\n");
+        scanf(" %c", &animal);
+
+
+
+//checking the price
+
+if(animal=='D' || animal=='d') {
+
+    char neuteredCheck;
+    printf("\nHas your pet been neutered? \n");
+    printf("\n Y for yes, \n N for no: \n\n");
+    scanf(" %c", &neuteredCheck);
+
+        if(neuteredCheck=='Y' || neuteredCheck=='y') {
+            printf("The dog costs 50$. \n");
+        } else {
+            printf("The dog costs 80$. \n");
+        }
+
+} else if(animal=='C' || animal=='c') {
+
+    char neuteredCheck;
+    printf("\nHas your pet been neutered? \n");
+    printf("\n Y for yes, \n N for no: \n\n");
+    scanf(" %c", &neuteredCheck);
+
+    if(neuteredCheck=='Y' || neuteredCheck=='y') {
+            printf("The cat costs 40$. \n");
+        } else {
+            printf("The cat costs 60$. \n");
+        }
+
+} else if(animal=='B' || animal=='b' || animal=='R' || animal=='r') {
+    printf("Birds and reptiles cost nothing.\n");
+
+} else {
+    printf("Error.\n");
+
+}
+
+
+
+    return 0;
+
+}//endmain
+

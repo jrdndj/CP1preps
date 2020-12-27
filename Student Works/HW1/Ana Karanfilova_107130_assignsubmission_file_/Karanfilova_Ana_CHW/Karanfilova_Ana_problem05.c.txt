@@ -1,0 +1,25 @@
+/*Write a C program that will perform the following functions below:
+Allow the user to enter a number. This number will determine the maximum number of asterisks
+in a row. Print a left-based triangle that will have the user’s input number as the maximum number.*/
+#include<stdio.h>
+
+int main(){
+    //declaring variables
+    int dLength;
+    //interactive user input
+    printf("\nLength of longest row: ");
+    scanf("%d", &dLength);
+    //for loop going through all rows
+    for( int dCtr1=0; dCtr1<2*dLength; dCtr1++ ){
+        //for loop going through the first dLength rows(until longest row)
+        for( int dCtr2=0; dCtr2<dCtr1+1 && dCtr1<dLength; dCtr2++ ){
+            printf("* ");
+        }//end of first inner for
+        //for loop going through remaining rows(till 2dLengh)
+        for( int dCtr3=dCtr1+1; dCtr3<2*dLength && dCtr1>=dLength; dCtr3++ ){
+            printf("* ");
+        }//end of second inner for
+        printf("\n");
+    }//end of outer for
+    return 0;
+}//endmain

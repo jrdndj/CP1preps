@@ -1,0 +1,25 @@
+//a C program that prints rows of asterisks from 1-length from user input
+#include<stdio.h>
+
+int main(){
+    //declaring variables
+    int dNum;
+    //interactive user input
+    printf("\nInput longest row length: ");
+    scanf("%d", &dNum);
+    //prepping for result
+    printf("\nN=%d", dNum);
+    //loop going through all rows
+    for( int dCtr1=0; dCtr1<dNum; dCtr1++ ){
+        printf("\n");//marks new rows
+        //loop for empty spaces
+        for( int dCtr2=0; dCtr2<dCtr1; dCtr2++){
+            printf(" ");
+        }//end second for(spaces)
+        //loop for asterisks in each row
+        for(int dCtr3=0; dCtr3<=dNum-dCtr1-1; dCtr3++){
+            printf("*");//try printf("* ");
+        }//end third for(asterisks)
+    }//end first for(rows)
+    return 0;
+}

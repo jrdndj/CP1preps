@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+int main()
+{
+
+    //declaring the variables
+
+    int a;
+    int b;
+    int C;
+    
+
+    //interactive input
+    printf("Input side a: \n");
+    scanf("%d", &a);
+
+    printf("Input side b: \n");
+    scanf("%d", &b);
+
+    printf("Input angle C: \n");
+    scanf("%d", &C);
+
+
+    //checking the angle
+
+    if(C==90) {
+        printf("Right Triangle");
+} else if(C<90) {
+        printf("Acute Triangle");
+}else if(C>90) {
+        printf("Obtuse Triangle");
+}
+
+   
+
+
+    return 0;
+}//endmain

@@ -1,0 +1,62 @@
+#include <stdio.h>
+int main(){
+//declaring variables
+int n;
+char word[2];
+//i need the following to check the user's input
+char triangle[2]="t";
+char rectangle[2]="r";
+char suprise[2]="s";
+//getting input from user
+printf("Please enter the length you want your object to be (note: it must be an integer): \n");
+scanf("%d", &n);
+printf("Type which of the following you want:enter \"t\" for a triangle, \"r\" for a rectangle or type \"s\" for a suprise!\n");
+scanf("%s", word);
+
+
+//checking if the user entered r for rectangle
+if (strcmp(word, rectangle ) == 0){
+    printf("Here is your rectangle:\n");
+    for(int i=1; i<=n; i++){
+        for(int j=1; j<=n; j++){
+        printf("*");
+        }//end nested for
+    printf("\n");
+    }//end for
+}//end if
+
+//checking if the user entered t for triangle
+if (strcmp(word, triangle ) == 0){
+printf("Here is your triangle:\n");
+    for(int i=1; i<=n; i++){
+        for(int j=1; j<=n; j++){
+            if(j>=i){
+                printf("*");
+            }//end if
+        else{
+            printf(" ");
+            }//end else
+        }//end nested for
+    printf("\n");
+    }//endfor
+}//end if
+
+//checking if the user entered s for the suprise
+if (strcmp(word, suprise ) == 0){
+printf("Here is a Christmas tree. Happy new year!!!!.\n");
+for(int i=1; i<=n; i++){
+    for(int j=1; j<=2*n-1; j++){
+            if(j >= n-(i-1) && j <= n+(i-1)){
+                printf("*");
+            }//end if
+            else{
+                printf(" ");
+            }//end else
+
+    }//end nested for
+printf("\n");
+}//endfor
+}//endif
+
+return 0;
+}

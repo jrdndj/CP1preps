@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1607975177 source:c:\codeblocks\mingw\bin\pavel_jolakoski_problem05.c\main.c
+	<stdio.h>
+	<stdlib.h>
+

@@ -1,0 +1,15 @@
+#include<stdio.h>
+
+
+int main(){
+
+	for(int i=2; i<=14; i++){
+	if(i%1==0 || i%i==0){
+	printf(i);
+	}
+	}
+
+
+
+return 0;
+}

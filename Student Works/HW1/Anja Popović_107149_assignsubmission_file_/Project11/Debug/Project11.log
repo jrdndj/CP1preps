@@ -1,0 +1,4 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(491,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (Project11.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  Anja_Popovic_problem15.c
+C:\Users\Popovic\source\repos\Project11\Project11\Anja_Popovic_problem15.c(18,42): error C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\Popovic\source\repos\Project11\Project11\Anja_Popovic_problem15.c(9,26): warning C4101: 'res': unreferenced local variable

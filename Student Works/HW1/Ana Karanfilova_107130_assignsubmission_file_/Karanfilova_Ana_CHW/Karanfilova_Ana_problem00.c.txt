@@ -1,0 +1,43 @@
+/*Create a C Program that will do the following below:
+The program should allow the user to input a value for variables a, b, c and be able to determine
+if the sides/angles represent a Right Triangle, Acute Triangle or an Obtuse Triangle.*/
+//DOEN"T WORK BUT THIS IS THE GENERAL IDEA(MORE OF A SKETCH)
+#include<stdio.h>
+#include<math.h>
+
+int main(){
+    //declaring variables
+    float a,b,c;
+    float dAngle;
+    //interactive input
+    printf("\nInput side a: ");
+    scanf("%f", &a);
+    printf("\nInput side b: ");
+    scanf("%f", &b);
+    printf("\nInput angle C(in degrees): ");
+    scanf("%f", &dAngle);
+    //checking some requirements
+    if( a<0 || b<0 || dAngle>360 ){
+        printf("\nInvalid input!");
+    }//end if
+    else{
+        dAngle=dAngle*(3.142 / 180.0);//covert to rad to use in math operations
+        printf("%f ", dAngle);
+        c=pow(a,2)+pow(b,2)-(2*a*b*cos(dAngle));//compute the third side(cos law)
+        c=sqrt(c);
+        //calculates and prints the results
+        if(c>a+b){
+            printf("\nDon't form a triangle.");
+        }//end if
+        else if( round(b*sin(dAngle)/c)==1 || round(a*sin(dAngle)/c)==1 || round(sin(dAngle))==1 ){//sin law
+            printf("\nRight Triangle.");
+        }//end else if
+        else if( b*sin(dAngle)/c<1 && a*sin(dAngle)/c<1 && dAngle<1.571000 ){//sin law
+            printf("\nAcute Triangle.");
+        }//end else if
+        else if( b*sin(dAngle)/c>1 || a*sin(dAngle)/c>1 || dAngle>1.571000 ){//sin law
+            printf("\nObtuse Triangle.");
+        }//end else if
+    }//end else
+    return 0;
+}//end main

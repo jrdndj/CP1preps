@@ -1,0 +1,37 @@
+/*Write a C program to input elements in an array. After all the numbers are inserted in the array,
+put even and odd elements in two separate arrays.*/
+#include<stdio.h>
+
+int main(){
+    //declaring array length;
+    int dLength;
+    //interactive input
+    printf("\nInput array length: ");
+    scanf("%d", &dLength);
+    //declaring the rest of the variables dependent on first input
+    int dNumArr[dLength], dNumEven[dLength], dNumOdd[dLength], dCtr2=0, dCtr3=0;
+    //input of elements and sorting into separate containers
+    printf("\nArray elements are\n");
+    for(int dCtr=0; dCtr<dLength; dCtr++){
+        printf("At index %d ", dCtr);
+        scanf("%d", &dNumArr[dCtr]);
+        //condition for sorting
+        if( dNumArr[dCtr]%2==0){
+            dNumEven[dCtr2]=dNumArr[dCtr];
+            dCtr2++;
+        }//end of inner if
+        else{
+            dNumOdd[dCtr3]=dNumArr[dCtr];
+            dCtr3++;
+        }//end of inner else
+    }//end of first for(user input)
+    printf("\nArray of even elements: ");
+    for(int dCtr=0; dCtr<dCtr2; dCtr++){
+        printf("%d ", dNumEven[dCtr]);
+    }//end of second for(elements meeting the first condition)
+    printf("\nArray of odd elements: ");
+    for(int dCtr=0; dCtr<dCtr3; dCtr++){
+        printf("%d ", dNumOdd[dCtr]);
+    }//end of third for(element meeting the second condition)
+    return 0;
+}//end main

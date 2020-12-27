@@ -1,0 +1,45 @@
+/*Write a program that asks the user to type an integer N and that writes the number of prime
+numbers lesser or equal to N.
+*/
+
+
+#include <stdlib.h>
+
+int main()
+{
+    int num1=1, num2, i, j, flag, count = 0;
+
+    printf("Enter a number and I will tell you the number of prime numbers that are less or equal to the number you entered. \n");
+    scanf("%d", &num2);
+    if (num2 < 2)
+    {
+        printf("There are no primes upto %d\n", num2);
+        exit(0);
+    }
+
+    
+    if ( num1 % 2 == 0)
+    {
+        num1++;
+    }
+    for (i = num1; i <= num2; i = i + 2)
+    {
+        flag = 0;
+        for (j = 2; j <= i / 2; j++)
+        {
+            if ((i % j) == 0)
+            {
+                flag = 1;
+                break;
+            }
+        }
+        if (flag == 0)
+        {
+
+            count++;
+        }
+    }
+    printf("Number of primes from %d - %d is %d\n", num1, num2, count);
+
+return 0;
+}//end main

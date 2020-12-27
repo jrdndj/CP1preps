@@ -1,0 +1,36 @@
+/*Write a program that asks the user to type a positive integer. When the user types a negative
+value the program writes ERROR and asks for another value. When the user types 0, that
+means that the last value has been typed and the program must write the average of the
+positive integers. If the number of typed values is zero the program writes 'NO AVERAGE*/
+#include<stdio.h>
+
+int main(){
+    //declaring variables
+    int dNum, dCtr=0;
+    float fAvrg=0;
+    //instructions
+    printf("\nInstructions:Enter the numbers whose average you want to calculate,then enter 0 when done.\n");
+    //while loop asks for input until terminating condition is entered
+    do{
+        printf("\nYour number is: ");
+        scanf("%d", &dNum);
+        //skips the negative inputs
+        if( dNum<0 ){
+            printf("\nERROR!\n");
+            continue;
+        }
+        //computing the sum and counting the inputs
+        fAvrg+=dNum;
+        dCtr++;
+    }while( dNum!=0 );//terminating condition
+    if(fAvrg!=0){
+    //calculating and the average
+    fAvrg/=(float)dCtr;
+    printf("\nAverage of all numbers is %.3f\n", fAvrg);
+    }//end if
+    else{
+        //case where no numbers are entered
+        printf("\nNO AVERAGE");
+    }//end else
+    return 0;
+}//end main

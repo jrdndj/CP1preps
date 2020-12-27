@@ -1,0 +1,19 @@
+#include<stdio.h>
+
+int main(){
+
+	int a;
+	int count=0;
+	printf("\nHow many numbers do you want\n");
+	scanf("%d",&a);
+
+	for(int i=2; i<=a; i++){
+	if(i*1==i && i%2!=0){
+	count++;
+	printf("\n%d\n",i);
+	}
+	}
+
+
+return 0;
+}

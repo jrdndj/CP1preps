@@ -1,0 +1,54 @@
+#include <stdio.h>
+int main(){
+//declaring variables
+char type[10];
+char answer[5];
+char dog[4]="dog";
+char cat[4]="cat";
+char bird[5]="bird";
+char reptile[8]="reptile";
+char yes[4]="yes";
+
+//getting input
+printf("Enter what type of animal you want to insure:\n ");
+scanf("%s", type);
+
+
+//checking if the animal the user entered is a dog and if its a dog has it been neutered
+ if (strcmp(type, dog) == 0) {
+        printf("Has it been neutered? Type yes/no. \n");
+        scanf("%s", answer);
+        if(strcmp(answer, yes) == 0){
+            printf("\nA dog that has been neutered costs $50. ");
+        }//end if
+    else {
+        printf("\nA dog that has not been neutered costs $80.");
+    }//end else
+}//end first if
+
+//checking if the animal the user entered is a cat and if its a cat has it been neutered
+    else if(strcmp(type, cat) == 0){
+            printf("Has it been neutered? Type yes/no. \n");
+            scanf("%s", answer);
+        if(strcmp(answer, yes) == 0){
+            printf("\nA cat that has been neutered costs $40. ");
+        }//end if
+    else {
+        printf("\nA cat that has not been neutered costs $60.");
+        }//end else
+    }//end first elseif
+
+    else if(strcmp(type, bird) == 0){
+    printf("It is free to insure your bird.\n");
+    }//end else
+
+    else if(strcmp(type, reptile) == 0){
+    printf("It is free to insure your reptile.\n");
+    }//end else
+
+    else{
+        printf("Error. You didn't enter one of the following: dog, cat, bird, reptile.");
+
+    }
+return 0;
+}

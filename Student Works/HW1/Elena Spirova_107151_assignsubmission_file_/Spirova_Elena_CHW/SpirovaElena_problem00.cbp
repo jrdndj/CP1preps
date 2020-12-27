@@ -1,0 +1,66 @@
+/* problem 00 3.
+I USED
+Cosine Law states that:
+a. c2 = a2 + b2 – 2ab(cos C)
+b. b2 =a2 +c2 –2ac(cosB)
+c. a2 =b2 +c2 –2bc(cosA)
+4. Sine Law states that: a/sin A = b/sin B = c/sin C
+5. 180 degrees is equal to π rad*/
+#include <stdio.h>
+#include<math.h>
+#define M_PI 3.14159265358979323846
+int main()
+{
+    //declare variables
+    float fA, fB, fC,fa, fb,  fc;
+    printf("Enter side A:\n");
+    scanf("%f", &fA);
+
+    printf("\nEnter side B:\n");
+    scanf("%f", &fB);
+
+    printf("\nEnter angle c:\n");
+    scanf("%f", &fc);
+
+    ///find the others
+    ///1st find side c
+    fC=sqrt(pow(fA,2)+pow(fB,2)-2*fA*fB*cos(fc));
+    printf("\nThe side c:%f\n",fC);
+    fb=acos((pow(fA,2)-pow(fB,2)-pow(fC,2))/(2*fA*fC));//law of cosine
+    fb=fb*180/M_PI; //convert from rad to degree
+    if(fb<0)
+    {
+        fb=(-1)*fb; //if the value we get is a negative angle give it back in abs value
+    }//endif
+    printf("\nangle b: %f\n",fb);
+    fa=asin(sin(fc)*fA/fC); //sine law
+    fa=fa*180/M_PI;
+    if(fa<0)
+    {
+        fa=(-1)*fa;
+    }//endif
+
+    printf("\nangle a: %f\n",fa);
+    ///now find out what type of triangle this is
+    if(fc==90||fb==90||fa==90)
+    {
+        if(fc>90||fb>90||fa>90)
+        {
+            printf("We have an obtuse, right triangle.");
+        }//end2if
+        else
+        {
+            printf("We have an accute right triangle.");
+        }//endelse
+    }//end1if
+    else if(fc>90||fb>90||fa>90)
+    {
+        printf("we have an obtuse triangle");
+    }//endelse
+    else
+    {
+        printf("we have an acute angle");
+    }//endif
+
+    return 0;
+}

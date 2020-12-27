@@ -1,0 +1,37 @@
+/*Write a program that asks the user to type an integer N and that writes the number of prime
+numbers lesser or equal to N.*/
+#include<stdio.h>
+
+int main(){
+    //declaring variables
+    int dNum, dCtr, dNumCtr=0;
+    //interactive input
+    printf("\nYour number is: ");
+    scanf("%d", &dNum);
+    int dNum1=dNum;
+    //checking the validity of the input(negative numbers are not prime)
+    if( dNum<2){
+        printf("\nInvalid input!");
+    }//end if
+    else{
+        //loop going through all possible prime numbers in the specified range by the user
+        while( dNum>1 ){
+            dCtr=2;
+            //going through all dividers less than the current number
+            for(int dCheck=2; dCheck<dNum; dCheck++){
+                //checking if the the number is divisible, but not by itself
+                if( dNum%dCheck==0 && dNum!=dCheck ){
+                    dCtr++;
+                }//end first inner if
+            }//end for
+            //printing the primes
+            if(dCtr==2){
+                printf("%d ", dNum);
+                dNumCtr++;
+            }//end second innerif
+            dNum--;
+        }//end while
+        printf("\nBetween 1 and %d there are %d prime numbers: ", dNum1, dNumCtr);
+    }//end else
+    return 0;
+}//end main

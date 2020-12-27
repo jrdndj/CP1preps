@@ -1,0 +1,24 @@
+/*Write a program that asks the user to type 10 integers
+ and returns the smallest integer in the list.*/
+ #include<stdio.h>
+
+ int main(){
+     //declaring variables
+     int dNumArr[10], dMin;
+     //interactive input of array elements
+     printf("\nFor an array of length 10 and type integer\n");
+     for(int dCtr=0; dCtr<10;dCtr++){
+        printf("\nEnter element at index %d: ", dCtr);
+        scanf("%d", &dNumArr[dCtr]);
+     }//end of first for
+     //searching for the min among the entered numbers
+     dMin=dNumArr[0];
+     for(int dCtr=0; dCtr<10;dCtr++){
+        if(dNumArr[dCtr]<dMin){
+            dMin=dNumArr[dCtr];
+        }//end if
+     }//end second for
+     //printing the result
+     printf("\nThe smallest integer in the array is %d.\n", dMin);
+    return 0;
+ }//end main

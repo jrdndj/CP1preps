@@ -1,0 +1,31 @@
+#include<stdio.h>
+
+
+int main(){
+
+	//making an array  
+	int array [10];
+	
+	//user input
+	printf("\n Please enter 10 integers\n");
+	
+	//for loop so that the user can input 10 values 
+	for(int i=0; i<10; i++){
+		scanf("%d", &array[i];
+	}
+	
+	int temp=0;
+
+	for(int i=0; i<array[10]; i++){
+		for(int j=0; j<array[10]; j++0{
+		if(array[i]<array[j]){
+			temp=array[i];
+			array[i]=array[j];
+			array[j]=temp;
+		}
+	   }
+	}
+	
+	printf("\n The smallest element is %d ", &array[0]);
+return 0;
+}//end main

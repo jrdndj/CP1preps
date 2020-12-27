@@ -1,0 +1,91 @@
+//Animal insurance: A program that prints the insurance fee to pay for a pet.
+#include<stdio.h>
+void pet_form(char cUserInput){
+    //declaring variables(pet characteristics)
+    char  sName[10], cGender, cStatus,  sAge[7];
+    int dAge, dWeight, dHealth[5], dSum=0;
+    //interactive input of pet characteristics
+    printf("\t\tPET INSURANCE FORM");
+    printf("\nName: ");
+    scanf("%s", sName);
+    printf("\nGender(M/F): ");
+    scanf(" %c", &cGender);
+    printf("\nMonths or years?");
+    scanf("%s", sAge);
+    printf("\nHow many? ");
+    scanf("%d", &dAge);
+    printf("\nWeight: ");
+    scanf("%d", &dWeight);
+    if( cUserInput=='D' || cUserInput=='C'){
+    printf("\n Has %s been neutered(+/-)?", sName);
+    scanf(" %c", &cStatus);
+    }//endif
+    printf("\n\tENTERED BY VETENARIAN\t(1-5)");
+    printf("\nCavity status: ");
+    scanf("%d", &dHealth[0]);
+    printf("\nHearing status: ");
+    scanf("%d", &dHealth[1]);
+    printf("\nSight: ");
+    scanf("%d", &dHealth[2]);
+    printf("\nReflexes: ");
+    scanf("%d", &dHealth[3]);
+    printf("\nNumber of vaccinations taken: ");
+    scanf("%d", &dHealth[4]);
+    //printing the gathered input and replying accordingly
+    printf("\n\n\tINSURANCE FEE");
+    printf("\n\nAnimal: %c\t Name: %s \t", cUserInput, sName);
+    printf("\tAge: %d %s\t Weight: %d", dAge, sAge, dWeight);
+    printf("\nHealth status: ");
+    for(int dCtr=0; dCtr<5; dCtr++){
+        dSum+=dHealth[dCtr];
+    }//end for
+    if( dSum>=20){
+        printf("Good.");
+    }//end if
+    else if(dSum>=10){
+         printf("Schedule a check up in one week.");
+    }//end if else
+    else{
+        printf("Needs immediate help.");
+    }//end else
+    if(cUserInput=='D'){
+        if(cStatus=='+'){
+            printf("\nStatus:Neutered Dog\nInsurence cost:$50.");
+        }//end inner if
+        else{
+            printf("\nStatus:Non-neutered Dog\nInsurence cost:$80.");
+        }//end inner else
+    }//end "dog" if
+    else if(cUserInput=='C'){
+        if(cStatus=='+'){
+            printf("\nStatus:Neutered Cat\nInsurence cost:$40.");
+        }//end inner if
+        else{
+            printf("\nStatus:Non-neutered Cat\nInsurence cost:$60.");
+        }//end inner else
+    }//end else(cat) if
+    else{
+        printf("\nFor all birds and reptiles free of cost.");
+    }//end else
+}//end pet_form
+int main(){
+    //declaring variables
+    char cAnimal;
+    //interactive input
+    printf("Select your animal from the list:\nDog-D\nCat-C\nBird-B\nReptile-R\nOther-O\n");
+    scanf(" %c", &cAnimal);
+    //checking if input meets the specified conditions
+    switch( cAnimal ){
+            case 'D':
+            case 'C':
+            case 'B':
+            case 'R':
+                pet_form(cAnimal);//
+                break;
+        //error message if input is invalid
+        default:
+                printf("\nAnimal is not on the list!We can't offer any services.");
+                break;
+        }//end switch
+    return 0;
+}//end main

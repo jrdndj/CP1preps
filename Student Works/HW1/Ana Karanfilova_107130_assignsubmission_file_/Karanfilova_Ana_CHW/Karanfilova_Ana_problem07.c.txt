@@ -1,0 +1,24 @@
+/*Request the user to enter one or two-digit integers, then print that input but three times, until the
+user enters -999. If the user enters ‘1’ then it should print “111”. If the user enters ‘8’ then it
+should print ‘888’. The program will never stop asking for an input until the user enters 999.*/
+#include<stdio.h>
+
+int main(){
+    //declaring variables
+    int dNum;
+    printf("This program prints entered input three times, until 999 is entered.");
+    //loop asks for input until terminating condition is met
+    do{
+        //interactive input
+        printf("Enter a one or two digit integer: ");
+        scanf("%d", &dNum);
+        //checking if input meets required conditions
+        if( dNum<0 || dNum>99){
+            continue;
+        }//end if
+        else{
+            printf("%d%d%d\n", dNum,dNum,dNum);
+        }//end else
+    }while( dNum !=999);//terminating condition(end do-while)
+    return 0;
+}//end main

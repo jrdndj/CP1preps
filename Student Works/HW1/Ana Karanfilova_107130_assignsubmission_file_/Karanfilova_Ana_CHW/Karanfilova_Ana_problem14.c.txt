@@ -1,0 +1,46 @@
+/*Write a program in C to count a total number of duplicate elements in an array. Minimum should
+be 5 and maximum is 25 elements. Inputs must be integers (both negative and positive).*/
+#include<stdio.h>
+
+int main(){
+    int dLength;
+    //interactive input
+    printf("\nInput array length: ");
+    scanf("%d", &dLength);
+    //declaring other variables
+    int dNumArr[dLength], dElCtr=0;
+    //checking required condition
+    if( dLength<5 || dLength>25 ){
+        printf("Invalid input\n");
+    }//end if
+    else{
+        //getting the elements
+        printf("\n Input array elements: ");
+        for(int dCtr=0; dCtr<dLength; dCtr++){
+            scanf("%d", &dNumArr[dCtr]);
+            //checking if future checker is an array element
+            if(dNumArr[dCtr]==0){
+                dElCtr++;
+            }//end if
+        }//end for
+        //is checker a duplicate element of the array
+        if(dElCtr>1){
+            dElCtr-=1;//counting if it is
+        }//end if
+        else{
+            dElCtr=0;//erasing if it isn't
+
+        }//end else
+        //going through all consecutive array elements two by two
+        for(int dCtr1=0; dCtr1<dLength; dCtr1++){
+            for(int dCtr2=dCtr1+1; dCtr2<dLength; dCtr2++){
+                if(dNumArr[dCtr1]==dNumArr[dCtr2] && dNumArr[dCtr1]!=0){
+                    dElCtr++;//counting duplicates
+                    dNumArr[dCtr2]=0;//marking visited elements
+                }//end if
+            }//end inner for
+        }//end outer for
+        printf("\nThe number of duplicate elements is %d.", dElCtr);
+    }//end else
+    return 0;
+}//end main
