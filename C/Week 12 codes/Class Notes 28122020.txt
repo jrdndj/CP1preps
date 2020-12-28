@@ -1,0 +1,113 @@
+Class Notes 28.12.2020
+
+Today's Lesson
+C Structures 
+
+Today we shall cover: C-structures
+
+	Structures, structs, records
+
+	before we use primitive data types (int, double, float, char) where memory allocation is more direct, and easier to manage. memory access is also more straightforward. 
+
+	int nNum = 1;
+
+	|1| | | | |
+	 ^nNum
+
+	Complex data types - memory allocation is more complicated, requires a different way to access memory 
+
+	arrays - a collection of homogeneous (same type of) elements. we use arrays to hold elements or members of the same data type. 
+
+	list of quiz of scores, a characters that form one string (c-string)
+
+	structures/records - a collection of heterogeneous (different types of elements). we have one "code block" where you can have members or elements coming from different data types. In principle, when we use structures or records, we somehow define our "own data type". Structures and records are like the doorways to more advanced data structures such as linked lists, etc (when we use them with pointers). 
+
+	we need to define them. defining structures help the cmpiler know what is the format of the record. we use the struct keyword to informt he compiler tht there will be a structure/record. 
+
+	struct [tag]{
+		member definition;
+		member definition;
+		...
+		member definition;
+	} [variable names];
+
+	struct <tag name> <var name> ;
+
+	it would look something like this
+
+	//(global) structure definition
+	struct students{
+		int dStudent_id;
+		char sName[30];
+		char cSex; 
+	}; 
+
+	//followed by a structure variable declaration
+	struct students s1, s2, s3; 
+
+	//straight forward structure definition and declaration
+	struct students{
+		int dStudent_id;
+		char sName[30];
+		char cSex; 
+	} s1, s2, s3; 
+
+	//i have variables s1, s2 and s3 and they are of "type" struct students 
+
+	I have a variable s1 and it hs dStudent_id, it has sName, it has cSex. the same also goes for s2, and s3 because they are defined from that type of struct. 
+
+	s1
+	|{&dStudent_id} {&sName} {&cSex}|			|  | 			| | 
+	______________________________				 ^dStudent_id	 ^sName
+
+	there is memory size 
+	the record contains 100 bytes of memory 50 bytes s student_id... 
+
+	records and structures are discussed as "nodes"
+
+	|_| (nodes)
+	|_|-----> | | | |   hint: when we are discussing linkedlists
+
+	how to access, how to assign, how to manipulate, how to pass these values 
+
+	recall: specific elements/members in the arrays are accessed using the [] index operator
+
+	nNum[4] = 5;  //the value 5 is assigned in the 4-th element of the array 
+
+	in records we use memory access operator (.)
+
+	for example:
+
+	struct students{
+		int dStudent_id;
+		char sName[30];
+		char cSex; 
+	} s1, s2, s3; 
+
+	s1.dStudent_id = 1111;
+
+	inside functions, inside print, inside 
+
+	- can records be local/global? 
+
+	yes. we can pass them as arguments/parameters as well. 
+	we can pass them by value (duplicate of its values and not affecting the original)
+	or we can pass them by reference (sharing the original access on a limited scope without consuming extra memory)
+
+	if we are passing by value (in a function)
+	regular parameter
+
+	void print( struct students p1 ); //pass by value
+	//inside the function definition we use . operator
+	p1.dStudent_id;
+
+	void print( struct students *p1 ); //pass by reference note we are using the *
+	//inside the function definition we use -> operator
+	p1->dStudent_id; 
+
+
+
+
+
+
+
