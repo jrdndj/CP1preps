@@ -1,0 +1,167 @@
+JORDAN's AMA follow me @jrdndj
+
+8.01.2021
+
+#live-class-help for your chat 
+
+15 jan 2021 Midterms 2 
+
+1500-1700 time of exam
+
+60% Midterms (each midterm should be at least 30%, the average of both should be at least 50%)
+40% Homeworks (you need at least two homeworks, drop the lowest grade)
+4 homeworks, 1 bash, 1 latex, 2 c, your lowest homework will be "forgotten"
+
+basis for grading
+0	49.99	0
+50	64.99	6
+65	74.99	7
+75	84.99	8
+85	94.99	9
+95	100		10
+
+====== COMPUTER PRACTICUM FINALE =====
+
+Multidimensional Arrays
+Array of Records/Structures
+LinkedLists 
+
+Complex Data Structures (not data types) 
+BF, MA, RIN
+
+MD Arrays - matrices, vectors, 
+
+| | | | | | | array is a list
+
+we work with 2D arrays 
+
+2D array = X * y array (matrix)
+
+type arrayName[x][y] 
+
+int arr6x3[6][3]
+
+  0 1 2
+0 - - - 
+1 - - - 
+2 - - - 
+3 - - -
+4 - - -
+5 - - - 
+
+!help 
+
+especially in image processing (photos) 
+
+RGB = red green blue 
+
+every image has a pixel, resolution dpi (dot per inch)
+
+if you want to prcess these images you will use matrices or vectors 
+
+if you need to reference the elements in the array you refer to the specific point in the matrix/table 
+
+arr6x3[3][2] = 1;
+
+2Dimension C-string array 
+
+recall: C-string is your array of characters
+
+sWord[4] = {'w', 'o', 'r', 'd'};
+
+that means we can also have 2D strings 
+
+sWord[10][4]; // we have 10 sets of 4-character c-strings 
+
+a "dictionary" of n-character words 
+
+for 2 dimensional arrays, to recall
+
+in 1D/regular arrays we use for loop/while one loop to "traverse" through the elements
+
+
+if we use 2D arrays, then we use 2 for loops in our arrays 
+
+
+Array of Records (Array of Structure) 
+
+when we defined records/structures we are talking about defining a "new type" 
+if we have an array of records, then we have the list of the same "new type"
+
+struct students{
+	int dID;
+	char sFName[20];
+	char sLanme[20];
+	char sProgram[15];
+
+} bf[15], ma[4], rin[30];
+
+
+saving the data is the same in such a way that we just add the [] in it
+
+bf[0].id=5;
+bf[0].sFName = "Jovan";
+
+
+bf[] = list or a record of bf students 
+
+what you want to do is ify ou want to pass the array of records
+
+what you can do is have a point of a struct students type
+and the function receives the struct students* 
+
+the problem with array of records is when we define them we already limit the size of the memory allocated to the computer
+
+
+Linked Lists
+
+& address
+* pointer 
+
+struct students{
+	int dID;
+	char sFName[20];
+	char sLanme[20];
+	char sProgram[15];
+	struct students *next; 
+
+} bf, ma, rin; 
+
+bf.next= &ma;  // this is not the proper way to reference or access the element
+bf->next = &ma; //this is the proper way to reference 
+
+
+These are complex data structures that lets you manage "large" data in groups 
+Multidimensional Arrays = table, matrix, image data, encryption
+Array of records = 
+Linkedlists = records, databases 
+
+relational databases (SQL, etc) = array of records, linkedlists 
+noSQL (Json, MongoDB) = linkedlists
+
+Linkedlists = singly, doubly, circular
+traversal
+graphs, stacks, queues
+
+https://visualgo.net 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
