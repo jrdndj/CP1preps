@@ -1,0 +1,93 @@
+// This program is written by Katarina Javor, 13.1.2021.
+// here we have a program that calculates the minimum positive integer that its factorial is a multiple of squere of factoial of number that user inputs :)
+#include <stdio.h>
+#include <limits.h>
+
+// different methods for calculation
+long long unsigned Factorial (long long unsigned); // method for computing factorial
+long long unsigned SqueredFact (long long unsigned); // method for squering factorial number
+
+int main() {
+    // declearing variables
+    int dTest;
+    
+    // interactive input
+    printf("Let's do some math. How many numbers do you want to test? ");
+    scanf("%d", &dTest); // this number is also the size of array containg numbers that user inputs 
+    
+    // check if the size of array less then 200000 - condition given by the task
+    if (dTest < 200000) {
+        // make different arrays
+        long long unsigned lluArray[dTest];
+        long long unsigned lluArrSqrFact[dTest];
+        long long unsigned lluRFactorial;
+        long long unsigned lluArrResult[dTest];
+        
+        // for loop with user's numbers
+        for (int dCtr=0; dCtr<dTest; dCtr++) {
+            // interactive input
+            printf("Insert number: ");
+            scanf("%llu", lluArray[dTest]); 
+        } // end for loop
+        
+        // check if inserted numbers are positive and smaller then 200000
+        for (int dCtr=0; dCtr<dTest; dCtr++) {
+        if (lluArray[dCtr] < 0) {
+            printf("\n Numbers must be positive. Please try again.");
+        } // end if
+        if (lluArray[dCtr] >= 200000) {
+                printf("\n Too large numbers. Please try again.");
+        } // end if
+        } // end for loop
+        
+        // for loop to count squered factorial of user's numbers
+        for (int dCtr=0; dCtr<dTest; dCtr++) {
+            lluArrSqrFact[dCtr]=SqueredFact(lluArray[dCtr]);
+        } // end for loop
+        
+        // for loop 
+        for (int dCtr=0; dCtr<dTest; dCtr++) {
+            // go trough each number
+            for (int dResult=1; dResult<200000; dResult++) {
+                lluRFactorial=Factorial(dResult); // result
+                // check if conditions of the task are fulfilled
+                if (lluRFactorial % lluArrSqrFact[dCtr] == 0) {
+                    lluArrResult[dCtr]=dResult;
+                    break;
+                } // end if 
+            } // end for loop dResult
+        } // end for loop dCtr
+        
+        // output
+        printf("\n -----Result-----");
+        // go trough for loop to print numbers
+        for (int dCtr=0; dCtr<dTest; dCtr++) {
+            printf("\nInput: %llu  |  Result: %llu",lluArray[dCtr],lluArrResult[dCtr]);
+        } // end for loop
+        printf("\n ----------------");
+    } // end if
+    else if (dTest <= 0) {
+        printf("\n Please try again");
+    } // end else if
+    else {
+        printf("\n Too large number. Please try again.");
+    }
+    
+    
+    return 0;
+} // end main
+
+long long unsigned Factorial (long long unsigned lluUserInput) {
+    long long unsigned lluFactorial=1;
+    // make a for loop to go through sequence from 1 to user's number
+    for (long long unsigned lluCtr=1; lluCtr<=lluUserInput; lluCtr++) {
+        lluFactorial*=lluUserInput; // factorial is a multiplication of every number lower and equal to user's number
+    } // end for loop
+    return lluFactorial; // return factorial of user's number
+} // end Factorial method
+
+long long unsigned SqueredFact (long long unsigned lluFactorial) {
+    long long unsigned lluSqueredFact=lluFactorial*lluFactorial;
+    // squering factorial number
+    return lluSqueredFact; // return squered factorial of user's number
+} // end SqueredFact method

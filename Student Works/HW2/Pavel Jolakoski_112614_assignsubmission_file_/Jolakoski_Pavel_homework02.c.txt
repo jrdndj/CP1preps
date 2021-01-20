@@ -1,0 +1,156 @@
+/* This program was written by:
+
+    Name: Pavel
+    Surname: Jolakoski
+    ID: 89201013
+
+    PS: There are lines of code I used for testing. I didn't want to delete them so I commented them out so the output
+    doesn't get too clunky. If you delete the slash + asterisks signs that make the multi line comments you can get more information
+    inside the terminal.
+
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+//declaring functions
+unsigned long Factorial(int);
+
+int main()
+{
+    //declaring variables
+    int dNums;//user Input
+    int dMaxElem;//We store the max element in this one
+    int dCount=0;//Simple counter to find the number K that we are looking for.
+
+    unsigned long luArrayOfNumbers[100];//array that stores the user input
+    unsigned long luArrayOfFactorials[100];//array that stores the factorials of the entered numbers.
+    unsigned long luArrayOfSquaredFacts[100];//array that stores the squared factorials of the numbers above.
+    unsigned long luArrayOfFactsOfK[100];//array that stores the factorials of the K integers.
+
+    //First we ask the user how many tests he wants to do:
+    //We store them in a integer variable named dNums.
+    printf("How many tests do you wanna do: ");
+    scanf("%d", &dNums);
+
+    //Then we ask the user for the numbers he wants to test:
+    //We store this numbers in an array called luArrayOfNumbers:
+    printf("\nPlease enter the numbers you want to test: \n");
+    for(int dI = 0; dI<dNums; dI++){
+        scanf("%lu", &luArrayOfNumbers[dI]);
+    }
+
+    /*  <--delete this for more info.
+    //This is only for test delete after
+    //-----------------------------------------------------------------
+    printf("\nThe array is:\n");
+    for(int dI = 0; dI<dNums; dI++){
+        printf("\nluArrayOfNumbers[%d]= %lu", dI, luArrayOfNumbers[dI]);
+    }
+    //-------------------------------------------------------------------
+    *///<--delete this for more info.
+
+    //Now we got the user input, next thing we need to do is to get the factorials of these numbers
+    //And to store them into a new array called luArrayOfFactorials
+    for(int dI = 0; dI<dNums; dI++){
+        luArrayOfFactorials[dI] = Factorial(luArrayOfNumbers[dI]);
+    }
+    /* <--delete this for more info.
+
+    //This is only for test delete after
+    //-----------------------------------------------------------------
+    printf("\nThe array with factorials is:\n");
+    for(int dI = 0; dI<dNums; dI++){
+        printf("\nluArrayOfFactorials[%d]= %lu", dI, luArrayOfFactorials[dI]);
+    }
+    //-------------------------------------------------------------------
+    *///<--delete this for more info.
+
+    //Next thing we need to do is to square this factorials
+    //We store the squared factorials into a new array called luArrayOfSquaredFacts
+    for(int dI = 0; dI<dNums; dI++){
+        luArrayOfSquaredFacts[dI] = luArrayOfFactorials[dI]*luArrayOfFactorials[dI];
+    }
+
+    /*<--delete this for more info.
+    //This is only for test delete after
+    //-----------------------------------------------------------------
+    printf("\nThe array with factorials is:\n");
+    for(int dI = 0; dI<dNums; dI++){
+        printf("\nluArrayOfSquaredFactorials[%d]= %lu", dI, luArrayOfSquaredFacts[dI]);
+    }
+    //-------------------------------------------------------------------
+    *///<--delete this for more info.
+
+    //Now we need to find the max elements of the numbers that the user enters
+    //We gonna store this max elements into a variable named dMaxElem
+    dMaxElem = luArrayOfNumbers[0];
+    for(int dI = 0; dI<dNums; dI++){
+        if(dMaxElem < luArrayOfNumbers[dI]){
+            dMaxElem = luArrayOfNumbers[dI];
+        }
+    }
+
+    /*<--delete this for more info.
+    //this is only for test delete later
+    //-----------------------------------------------------------
+    printf("\nThe max element is: %d", dMaxElem);
+    //------------------------------------------------------------
+    *///<--delete this for more info.
+
+    //Now we use this max element to find the facts for the integers
+    //We gonna store this facts in a new array called luArrayOfFactsOfK
+    for(int dI=1; dI<=dMaxElem*2; dI++){
+        luArrayOfFactsOfK[dI] = Factorial(dI);
+    }
+
+    /*<--delete this for more info.
+    //This is only for test delete after
+    //-----------------------------------------------------------------
+    printf("\nThe array with K factorials is:\n");
+    for(int dI = 1; dI<=dMaxElem*2; dI++){
+        printf("\nluArrayOfFactsOfK[%d]= %lu", dI, luArrayOfFactsOfK[dI]);
+    }
+    //-------------------------------------------------------------------
+    *///<--delete this for more info.
+
+
+    //Now we have all of the parts we need to do the formula
+    //Let's see if it works.
+    //We gonna need a counter to find the number K that we need.
+
+    dCount=0;
+    for(int dI = 0; dI<dNums; dI++){
+        for(int dJ=0; dJ<dMaxElem*2; dJ++){
+            if(luArrayOfFactsOfK[dJ] != 0 && luArrayOfSquaredFacts[dI] != 0){
+                if(luArrayOfFactsOfK[dJ] % luArrayOfSquaredFacts[dI] != 0){
+                    dCount++;
+                }
+                else{
+                    break;
+                }
+            }
+        }
+        printf("\nThe output we are looking for is: %d", dCount + 1);//it has a margin of error 1 so i just put + 1 here.
+        dCount = 0;//This restarts the counter so we can use it for the other numbers.
+    }
+
+    return 0;
+}
+
+//function for factorial
+unsigned long Factorial(int dN){
+
+    int dI;
+    unsigned long lFact = 1;
+    // shows error if the user enters a negative integer
+    if (dN < 0){
+        printf("Error! Factorial of a negative number doesn't exist.");
+        }
+    else {
+        for (dI = 1; dI <= dN; ++dI) {
+            lFact *= dI;
+        }
+    }
+    return lFact;
+}
