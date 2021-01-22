@@ -1,1 +1,0 @@
-Since i couldn't finish all of tasks here is a progaram i worked on for past 3 days
