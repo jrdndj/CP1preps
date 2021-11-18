@@ -1,0 +1,9 @@
+Step 1: Create a new document project in overleaf. 
+Step 2: The .tex file should be named something like:
+
+<Surname_GivenName>.tex       e. g. Godzilla_Gospod.tex
+
+Step 3: Combine images, math equations and other LaTeX elements (see samples in next slides) discussed today. Add your name somewhere in the document so it is visible. 
+
+<optional> 
+Step 4: Submit the .tex code, other files and screenshot of the preview as a contribution to CP1Preps repository. You can do this by creating your own branch, and submitting a pull request with your updated code. 
