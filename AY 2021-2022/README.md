@@ -9,6 +9,10 @@ Submissions are to be put in the folder with the name "Student Works". A folder 
 
 For example, if the username is "jrdndj" then there should be a jrdndj folder inside Student Works. 
 
+## Slavic Characters
+
+You may check this link on how to use Serbo-Croat characters https://tex.stackexchange.com/questions/14872/croatian-serbian-letters-in-cv-problem 
+
 ## WARNING
 
 You may only contribute to your folders unless you have been explicitly told to do so (for example: in pair or programming exercises). 
