@@ -1,0 +1,117 @@
+06122021 Class Notes
+
+Our topics for today will be on:
+- Hungarian notation in declaring variables and constants
+- One dimensional Arrays (integer)
+
+Just to recall: 
+In Programming we use identifiers which store values. Depending on when and how the value changes, we can call them as either variables or constants. 
+Variables - are identifiers whose values can change in runtime. 
+Constants - are identifiers whose values are defined in compile time and cannot change during run time. 
+
+Hungarian Notation in Identifier Naming
+
+Your identifiers come in two parts
+ - one character data type at the prefix 
+
+ n/i for integers
+ d for decimal
+ c for characters
+ s for strings
+ b for bytes
+
+ - the rest of the name in camelcase. 
+
+ WhenYouTypeLikeThis this is called camel case. 
+
+ Following this your variables should look like this: 
+
+ a numeric user input : nUserInput
+                        ^^
+ if you use i or j or x in your programs you will not get the full points. 
+
+ n = n/2*2
+ nUserInput = nUserInput/2*2  
+
+What is the value returned by the second for loop after the 7th run? 
+
+ 0, 5, 6, 7, 8, 9, 10 
+
+ - naming constants 
+
+ #define variablename
+
+ - in naming constants we use UPPER_CASE
+
+ define constants in a program
+
+ #include<stdio.h>
+ #define VALUE_OF_PI = 3.14
+ #define GRAVITY = -9.8
+
+ using constants help you write what we call "scalable" or reusable code 
+
+ C uses arrays 
+
+ - C also has 0 zero-based index
+ - the first element is called the 0th element
+ - index refers to the location of individual elements in the array 
+ - we refer to them using the index and we use brackets
+ - an array can be declared with 5 slots and this means that we have elements 0, 1, 2, 3, 4
+ - 1th element (not 1st)
+ - 2th element (not 2nd)
+
+ - compared to Java, using arrays are simpler and more straightforward
+
+ declaring arrays
+
+ datatype variablename[<size>];
+
+ int nList[5];
+ //this is an array declaration
+
+ //unfortunately in C we need to define the size of the array in compile time
+ // the array size has to be defined in the program 
+
+ int nList[5] = {99,44,33,11,77};
+ //this is an array initialization
+
+ //how we do character arrays
+ char cLetters[3];
+ char cLetters[3] = {'a', 'b', 'c'};
+ //this is our c-strings 
+
+ when referring to the single element in the array, we use the index for it 
+
+ arrayName[index];
+ nList[4]; 
+ //this is getting or accessing the value of the 4th element in nList
+
+ int nList[5] = {99,44,33,11,77};
+ nList[nIndex];
+ // we have indices 0, 1, 2, 3, 4
+ //this is getting or accessing the value in the array represented by the value of nIndex as index
+ //if nIndex is 0 then it returns the 0th element
+ //if nIndex is 5
+
+ nList[nIndex + 2];
+ //whatever is the value of nIndex+2, that becomes the index we access in your array 
+
+ //we print them based on the data type
+
+ printf("%d", nList[0]);
+ //this statement prints the 0th element of nList
+
+ printf("%d", nList);
+ //this will yield an error
+
+ how do we input? 
+ //if we want to use scanf, we input them one at a time 
+ //to efficiently input into an array we recommend using for loops  
+
+ scanf("%d", nList[0]);
+ //this is directly inputing into the 0th element
+
+ scanf("%d", nList[i]);
+
+ scanf("%d", &nNum);
