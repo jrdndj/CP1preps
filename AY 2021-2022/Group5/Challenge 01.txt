@@ -1,0 +1,40 @@
+Challenge 01
+cipher = encrypt or hide 
+decipher = to unlock the code
+
+will receive an input word (c string) 
+and replace a certain character with a different character
+
+'a', replace it with '5'
+'e', replace it with 'X
+o' or 'u', replace it with 'Q'
+
+hint: sInput[dCtr]='5';
+
+input: "monkey" 
+output: "mQnkXy"
+
+print the encrypted string 
+
+Challenge 02
+
+Write a C Program that allows the user to accept 4 equations (no spaces). 
+Hint: 1 variable per equation. 
+Your program should be able to do the following:
+> Compare if your equations are the same (is eq1 same as eq2 and eq3 and so on)
+> %%Count the number of basic operators (+, -, *, / only). 
+> If possible, put all + operators in eq1, - operators in eq2, * in ep3 and / in eq4
+> Print the new 4 equations. 
+> hint: use strcmp, strstr/strchr, strcat. You may need to use an extra string as buffer.
+
+ sample input: 
+> y + c
+> z + c - y * d
+> a * b + d
+> b / a + 1
+
+output
+> eq1 = y + c + c + z + d + 1
+> eq2 = - y 
+> eq3 = a * b * d
+> eq4 = b / a 
