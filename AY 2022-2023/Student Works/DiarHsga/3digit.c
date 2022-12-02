@@ -9,7 +9,7 @@ int main(){
 	a=a/10;
 	int c=a%10;
 	a=a/10;
-	printf("\n Your numbers digits are: %d %d %d \n", a, b, c); 
+	printf("\n Your numbers digits are: %d %d %d \n", a, c, b); 
 
 	
 
