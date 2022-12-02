@@ -12,4 +12,5 @@ int main(){
 	} else {
 		printf("%d is an odd number. \n", dNum1);
 	}
+	return 0;
 }
