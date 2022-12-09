@@ -1,0 +1,13 @@
+#include <stdio.h>
+
+int main(){
+
+	int dNum1, dFirst, dSecond, dLast;
+
+	printf("Give number: ");
+	scanf("%d", &dNum1);
+	dFirst=dNum1/100;
+	dSecond=(dNum1%100)/10;
+	dLast=(dNum1%100)%10;
+	printf("\n %d is first \n %d is second. \n%d is third \n", dFirst, dSecond, dLast);
+}
