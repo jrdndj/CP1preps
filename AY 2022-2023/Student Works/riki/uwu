@@ -1,0 +1,15 @@
+#include <stdio.h>
+#include<string.h>
+int main(){
+char sWord[20]="tuuwuuwujkuwukkuwukk";
+//count the number of uwu in this string
+int dLen = strlen(sWord);
+int counter=0;
+for (int i=0; i< dLen-2; i++){
+	if(sWord[i]=='u'&& sWord[i+1]=='w' && sWord[i+2]=='u'){
+		counter++;
+	}
+}
+printf("\n There are %d uwus in the string uwu \n",counter);
+return 0;
+}
