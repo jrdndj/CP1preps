@@ -16,22 +16,18 @@
  	printf("\n%s\n", mydata);
 
  	char s[]="this is my string.";
- 	//adds place for the 
+ 	 
 
  	for(int i=0;i<19;i++)
  	{
  		if(s[i]=='\0')
- 	printf("s[%d] = nt\n", i); //this is spevcial blank 
+ 	printf("s[%d] = nt\n", i); 
  	} //null terminator 
  	else{
  	printf("s[%d] = %c\n",i,s[i]);
  	}
  	printf("\n%s\n",s);
-
- 	chars
- 	printf("Enter:")
-
-
+//only for some prcatice
 
  return 0;
  }
