@@ -5,7 +5,7 @@
 
   dLen=20
   dor i=0  i<n-3 i++ 
-  i =w and i+1 == w  and i+3 == u then uwucount++
+  i =w and i+1 == w  and i+3 == u then uwucount++   */
 
   #include<stdio.h>
   #include<string.h>
@@ -28,7 +28,7 @@
 
  	for(int i=0; sWord[i]< dLen -3 ;i++)
  	{
- 		if(sWord[i] = 'u' && sWord[i+1] ==' w' && sWord[i+3] =='u')
+ 		if(sWord[i] == 'u' && sWord[i+1] =='w' && sWord[i+3] =='u')
  		{
  		dCtr++;
  		}
