@@ -1,8 +1,8 @@
-//task2
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+#include <ctype.h>//for tolower
+#include <stdbool.h> //for bool
 //drawing stick figure for every wrong guess
 void StickFigure(int WrongLetterCtr){
 	char Figure[6]={'(',')','/','|','\\','/','\\','\0'};
@@ -81,47 +81,83 @@ void StickFigure(int WrongLetterCtr){
 	default: 
 		break;
 	}//end switch
-}//end function	}
+}//end function
+
+//checks if letter is contained in word
+bool ContainsString(char Guess, char *Word){
+	bool Check=false;
+	for(int i=0;i<strlen(Word);i++){
+		if(tolower(Guess)==tolower(Word[i])){
+			Check=true;
+			break;
+		}//end if
+	}//end for
+	return Check;
+}//end function
+
+//changes _ to correct guess
+//const char * to return string
+const char *ChangeUnderscore(char Guess, char *Word, char *UnderArr){
+	for(int i=0;i<strlen(Word);i++){
+		if(tolower(Guess)==tolower(Word[i])){
+			UnderArr[i]=Guess;
+		}//end if
+	}//end for
+	return UnderArr;
+}
+//checks if to strings are the same (case insensitive)
+bool Same(char *Guess, char *Word){
+	bool Check=true;
+	for(int i=0;i<strlen(Word);i++){
+		if(tolower(Guess[i])!=tolower(Word[i])){
+			Check=false;
+			break;
+		}//end if
+	}//end for
+	return Check;
+}
 
 int main()
 {
 	//string array with movies
 	char Words[][10]={"Godzilla","Matrix","Alien","Avatar","Terminator"};
 	printf("Hello, welcome to hangman!\n");
-	
 	//picking random word
 	int ChooseWord=rand()%5;
 	char *GuessWord=Words[ChooseWord];
-	
 	//replacing the word with _
 	char Underscores[strlen(GuessWord)+1];
-	for (int i = 0; i <strlen(GuessWord) ; i++)
+	for (int i = 0; i <strlen(GuessWord) ; ++i)
 	{
 		Underscores[i]='_';
 	}//end for
-	
 	printf("Word you need to guess is %s\n", Underscores);
-	int WrongLetterCtr=0;
-	char Guess;
 	
+	int WrongLetterCtr=-1;
+	char Guess;
 	while(WrongLetterCtr<6){
-	//asking for user input
 		printf("Enter a letter\n");
 		scanf("%c",&Guess);
 		getchar();
-		printf("Your letter is %c\n",Guess);
-		//I will probably add a function to see if the letter is contained in the word
-		//Then if the guess is correct I'd probably need another function to modify the
-		//underscores array
-		
-		//if the guess is wrong (i still dont have the function for the if statement)
-		//so im leaving it like this so the loop isn't infinite when the program is 
-		//compiled
-		WrongLetterCtr++;
-		
+		if(ContainsString(Guess,GuessWord)==true){
+			strncpy(Underscores,ChangeUnderscore(Guess, GuessWord, Underscores),10);//to change Underscores with a new string
+			if(Same(Underscores,GuessWord)==true){
+					printf("You won the game! :)\n");
+					break;
+				}//end inner if
+			printf("Word after change is: %s \n", Underscores);
+			continue;
+		}//end outer if
+		if(ContainsString(Guess,GuessWord)==false){
+			WrongLetterCtr++;
+			StickFigure(WrongLetterCtr);
+			printf("Your word is still: %s \n", Underscores);
+			if(WrongLetterCtr==6){
+				printf("You lost :( \n");
+				break;
+			}
+			continue;
+		}//end if
 	}//end while
-	
-	//but i think this is a good time to commit
-
 	return 0;
 }
