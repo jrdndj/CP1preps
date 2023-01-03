@@ -37,12 +37,15 @@ int main()
 	if(answer!='y') {
 		printf("Goodbye\n");
 	}//end if
-		
+
+//while loop for multiple elevator rides
 while(answer=='y') {
 	printf("Where do you want to go?\n");
 	scanf("%c",&GoingTo);
 	getchar();
-			switch(GoingTo){
+	
+	//switch because it was easier to manage than if
+	switch(GoingTo){
 	case 'G':
 		GoingDown(Current,0);
 		printf("You are on the ground floor\n");
@@ -107,13 +110,15 @@ while(answer=='y') {
 		printf("Invalid input\n");
 		break;
 	}//end switch
+	
+//asking for user input
 printf("Do you want to alight the elevator?\n");
-		scanf("%c",&answer);
-		getchar();
-		if(answer!='y') {
-			printf("Goodbye\n");
-			break;
-		}
+	scanf("%c",&answer);
+	getchar();
+	if(answer!='y') {
+		printf("Goodbye\n");
+		break;
+	}//end if
 
  }//end while	
 
