@@ -135,12 +135,16 @@ int main()
 	
 	int WrongLetterCtr=-1;
 	char Guess;
+	//while loop to control number of guesses
 	while(WrongLetterCtr<6){
 		printf("Enter a letter\n");
 		scanf("%c",&Guess);
 		getchar();
+		
 		if(ContainsString(Guess,GuessWord)==true){
-			strncpy(Underscores,ChangeUnderscore(Guess, GuessWord, Underscores),10);//to change Underscores with a new string
+			//to change Underscores to the new string containing the guess
+			strncpy(Underscores,ChangeUnderscore(Guess, GuessWord, Underscores),10);
+			//checks if you guessed the word
 			if(Same(Underscores,GuessWord)==true){
 					printf("You won the game! :)\n");
 					break;
@@ -149,7 +153,9 @@ int main()
 			continue;
 		}//end outer if
 		if(ContainsString(Guess,GuessWord)==false){
+		//if guess is wrong it it increases the wrong guesses counter
 			WrongLetterCtr++;
+			//draws stick figure
 			StickFigure(WrongLetterCtr);
 			printf("Your word is still: %s \n", Underscores);
 			if(WrongLetterCtr==6){
