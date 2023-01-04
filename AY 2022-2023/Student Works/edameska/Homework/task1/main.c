@@ -2,8 +2,6 @@
 #include <string.h>
 #include <stdbool.h> //for bool
 
-//added basements
-
 //user input
 bool ask(char answer)
 {
@@ -40,8 +38,8 @@ void GoingDown(int n,int m){
 int main()
 {	//declaring variables
 	int Current=0;
-	char GoingTo[2];
 	bool answer,answerForRealz;
+	int PeopleNum;
 
 	//asling for user input
 	printf("You are on the ground floor\n");
@@ -51,37 +49,51 @@ int main()
 while(answerForRealz==true) {
 
 	//asking for user input
-	printf("Where do you want to go?\n");
-	scanf("%s",GoingTo);
+	printf("How many people are in the lift?\n");
+	scanf("%d",&PeopleNum);
 	getchar();
-//separates basemments from other floors since switch doesn't work with strings
-	if(GoingTo[0]=='B'){
-		//this way the if statements only have to look at the second character
-		if(GoingTo[1]=='1'){
+
+	//creating array for all of the locations,with a bigger number of elements so that i can keep working with it
+	char GoingTo[PeopleNum][2];
+	for (int i = 0; i < PeopleNum; ++i)
+	{
+	printf("Where do you want to go?\n");
+	scanf("%s",GoingTo[i]);
+	getchar();
+	}//end for
+	int LastElement=PeopleNum;
+	
+
+//going thru all of the locations
+for (int i = 0; i < PeopleNum; ++i)
+	{
+	if(GoingTo[i][0]=='B'){
+
+		if(GoingTo[i][1]=='1'){
 			if(Current>-1)
 			{
 				GoingDown(Current,-1);
 			}//end if
-			if(Current<-1){
+			else{
 				GoingUp(Current,-1);
 			}//end if
 		printf("You are in Basement 1\n");
 		Current=-1;
 		}//end basement 1 if
 
-		else if(GoingTo[1]=='2'){
+		else if(GoingTo[i][1]=='2'){
 			if(Current>-2)
 			{
 				GoingDown(Current,-2);
 			}//end if
-			if(Current<-2){
+			else{
 				GoingUp(Current,-2);
 			}//end if
 		printf("You are on Basement 2\n");
 		Current=-2;
 		}//end basement 2 if
 
-		else if(GoingTo[1]=='3'){
+		else if(GoingTo[i][1]=='3'){
 			GoingUp(Current,-3);
 		printf("You are in Basement 3\n");
 		Current=-3;
@@ -89,52 +101,57 @@ while(answerForRealz==true) {
 
 	}//end basements if
 
-	else{//switch case looks at the floors with 1 char
-	switch(GoingTo[0]){
+	else{
+	switch(GoingTo[i][0]){
 	case 'G':
+		if(Current>0){
 		GoingDown(Current,0);
+		}
+		else{
+		GoingUp(Current,0);
+		}
 		printf("You are on the ground floor\n");
 		Current = 0;
 		break;
 	case '1':
-		if(Current>(int)GoingTo[0])
+		if(Current>(int)GoingTo[i][0])
 		{
 			GoingDown(Current,1);
 		}//end if
-		if(Current<(int)GoingTo[0]){
+		else{
 			GoingUp(Current,1);
 		}//end if
 		printf("You are on the 1st floor\n");
 		Current=1;
 		break;
 	case '2':
-		if(Current>(int)GoingTo[0])
+		if(Current>(int)GoingTo[i][0])
 		{
 			GoingDown(Current,2);
 		}//end if
-		if(Current<(int)GoingTo[0]){
+		else{
 			GoingUp(Current,2);
 		}//end if
 		printf("You are on the 2nd floor\n");
 		Current=2;
 		break;
 	case '3':
-		if(Current>(int)GoingTo[0])
+		if(Current>(int)GoingTo[i][0])
 		{
 			GoingDown(Current,3);
 		}//end if
-		if(Current<(int)GoingTo[0]){
+		else{
 			GoingUp(Current,3);
 		}//end if
 		printf("You are on the 3rd floor\n");
 		Current=3;
 		break;
 	case '4':
-		if(Current>(int)GoingTo[0])
+		if(Current>(int)GoingTo[i][0])
 		{
 			GoingDown(Current,4);
 		}// end if
-		if(Current<(int)GoingTo[0]){
+		else{
 			GoingUp(Current,4);
 		}//end if
 		printf("You are on the 4th floor\n");
@@ -150,8 +167,28 @@ while(answerForRealz==true) {
 		break;
 	}//end switch
 	}//end else
+//asks for new people 
+int NewPeople;
+printf("How many new people entered the lift?\n");
+scanf("%d",&NewPeople);
+getchar();
+PeopleNum+=NewPeople;
+//asks where the new people want to go
+//if no one entered it skips to the next iterations
+if(NewPeople==0){
+	continue;
+}//end if
+//for loop to ask where everyones going
+//starts from last element to fill up the array further
+for (int j = LastElement; j < PeopleNum; ++j)
+{
+	printf("Where are you going?\n");
+	scanf("%s",GoingTo[j]);
+	getchar();
+}//end innerfor
+	LastElement=PeopleNum;
+}//end for
 	answerForRealz=ask(answer);		
-
  }//wnd while
 	
 
