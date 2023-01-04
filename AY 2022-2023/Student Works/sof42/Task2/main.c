@@ -21,10 +21,10 @@ char* chooseWord() {
 	// Declared array of possible word choices
 		char* dWordChoices[10] = {
 			"analysis",		"clutch",
-			"folder",			"keyboard",
+			"folder",		"keyboard",
 			"peanuts",		"allergy",
 			"windmill",		"noise",
-			"celery",			"seabass"
+			"celery",		"seabass"
 		};
 	/* 
 		 Declared integer for an index of a random word
@@ -71,9 +71,9 @@ void drawHangman(int dWrongGuesses) {
 // Function to play a game of Hangman
 void playHangman() {
 	// DECLARE VARIABLES
-		char  *dRandomWord 			= chooseWord();
-  	int  	dWordLength 			= strlen(dRandomWord);
-  	int  	dWrongGuesses 		= 0;
+	char  *dRandomWord = chooseWord();
+  	int  	dWordLength = strlen(dRandomWord);
+  	int  	dWrongGuesses = 0;
   	int  	dLoopCounter;
   	char 	dLetterInput;
   // char array the size of the word length of the random word the user has to guess
@@ -113,10 +113,10 @@ void playHangman() {
 							if it is, store it in the dGuess array
 					*/
 					if( dRandomWord[dLoopCounter] == dLetterInput ){//if2
-						dGuess[dLoopCounter] 		 	= dLetterInput;
-						dCorrectGuesses 					= 1;
-					}//endif2
-			}//endfor
+						dGuess[dLoopCounter] = dLetterInput;
+						dCorrectGuesses = 1;
+					}//end if2
+			}//end for
 
 		/* 
 			 If an incorrect letter has been entered, draw the stick figure and 
@@ -126,14 +126,14 @@ void playHangman() {
 				dWrongGuesses++;
 				drawHangman(dWrongGuesses);
 				printf("Wrong guess! You have %d attempt(s) left.\n", dMaxWrongGuesses - dWrongGuesses);
-			}//endif3
-		}//endif1
+			}//end if3
+		}//end if1
 
 		// If the input is NOT a LOWERCASE LETTER, output an error message
 		else{
 			printf("Invalid Input! Enter a LOWERCASE LETTER.\n");
 			continue;
-		}//endelse
+		}//end else
 		
 		/* 
 			 Check if the player has won, by using string comparison, 
@@ -142,8 +142,8 @@ void playHangman() {
 		if(strcmp(dRandomWord, dGuess) == 0){
 			printf("\nCongrats! You won! The correct word was: %s.\n\n", dRandomWord);
 			return;
-		}//endif
-	}//endwhile
+		}//end if
+	}//end while
 
 	/* 
 		 When out of the while loop, the number of wrong guesses is 
