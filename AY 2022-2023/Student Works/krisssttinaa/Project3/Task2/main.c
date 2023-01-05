@@ -1,8 +1,13 @@
+//library for printing strings, integers, characters on the output screen...(for basics)
 #include <stdio.h>
+//library for general purpose (functions involving memory allocation, process control, conversions...)
 #include <stdlib.h>
+//library for characters-string
 #include <string.h>
 //library for random number
 #include <time.h>
+//library for funtions "islower()" and "isalpha()" that are useful for testing and mapping characters
+#include <ctype.h>
 
 //Possible words to choose from
 //Mutable pointer to an immutable string/character
@@ -13,6 +18,11 @@ const char* sRandom[] = {
   "cortado",
   "affogato",
   "latte",
+  "cappuccino",
+  "macchiato",
+  "mocha",
+  "ristretto",
+  "black"
 };
 
 int main() {
@@ -21,7 +31,7 @@ int main() {
 
   //Choose a random word from the array
   //Mutable pointer to an immutable string/character
-  const char* sWord = sRandom[rand() % 5];
+  const char* sWord = sRandom[rand() % 10];
   int dWordLength = strlen(sWord);
 
   //Create an array to store the current state of the word
@@ -31,8 +41,6 @@ int main() {
   }
   sCurWord[dWordLength] = '\0';
 
-  //Declare some variables
-  char cAgain;
   //Initialize the number of incorrect guesses
   int dWrongGuess = 0;
 
@@ -61,7 +69,7 @@ int main() {
       printf("  | \n");
     }
     if (dWrongGuess > 6) {
-      printf("  | \n");
+      printf("  |__________ \n");
     }
 
     //Check if the user is a winner
@@ -75,12 +83,16 @@ int main() {
       }
     }
     //Print a message if the user won
-    if (dVictory) {
-      printf("\nYou won!\n \n");
+     if (dVictory) {
+      printf("\nGAME IS OVER!\nCongratulations!\nYou won!\n \n");
+      printf("  ('o')     thank you!\n");
+      printf("   _|_ \n");
+      printf("   / \\ \n \n");
+      break;
     }
     //If the limit of wrong attempts is reached
     if (dWrongGuess == 7) {
-        printf("\nYou lost!\n");
+        printf("\nGAME IS OVER!\nYou lost! The word: %s\n \n", sWord);
         break;
     }
 
@@ -91,14 +103,16 @@ int main() {
     scanf(" %c", &cGuess);
     //checks the output
     //isalfa checks if the input is a character
-    // Check if the input is a character
-  if ((cGuess >= 'a' && cGuess <= 'z') || (cGuess >= 'A' && cGuess <= 'Z')) {
-    // Input is a character
-    printf("You entered a character: %c\n", cGuess);
-  } else {
-    // Input is not a character
-    printf("The input is not a character. Please try again.\n");
-  }
+    if (isalpha(cGuess)) {
+        //islower checks if the character is in lower case
+        if (islower(cGuess)) {
+            break;
+      } else {
+      printf("Please, insert a lowercase character.\n");
+    }
+    } else {
+        printf("The input is not a character.\n");
+    }
     }
 
     //Check if the guess fits
