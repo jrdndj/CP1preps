@@ -40,15 +40,23 @@ int main() {
       sCurWord[i] = '_';
   }
   sCurWord[dWordLength] = '\0';
+  
+  //Print the rules of game and information for the user
+  printf("\n\t HANGMAN GAME");
+  printf("\n\t Be aware a man can be hanged!");
+  printf("\n\n\t Rules of the game: ");
+	printf("\n\t - Maximum 7 mistakes are possible.");
+  //I will ask the user to enter only lower case letters
+  //because all the words are in lower case and don't need to be written with upper
+  //the task for user is to guess a word, not casing of letters (see more in line 117)
+	printf("\n\t - Enter letters ONLY in lower case.");
+	printf("\n\t - All words are names of coffee drinks.\n");
 
   //Initialize the number of incorrect guesses
   int dWrongGuess = 0;
-  
-  //Declare some variables
-  char cAgain;
 
   //Continue the game until the player has won or lost
-  while (dWrongGuess < 8 || cAgain=='y') {
+  while (dWrongGuess < 8 ) {
     //Print the current word
     printf("\nCurrent word: %s\n", sCurWord);
 
@@ -104,11 +112,11 @@ int main() {
     char cGuess;
     //Ask the user for input until the amount of mistakes is less 7
     while (dWrongGuess < 7) {
-     printf("\nEnter a letter: ");
-     scanf(" %c", &cGuess);
-     //checks the output
-     //isalfa checks if the input is a character
-     if (isalpha(cGuess)) {
+    printf("\nEnter a letter: ");
+    scanf(" %c", &cGuess);
+    //checks the input
+    //isalfa checks if the input is a character
+    if (isalpha(cGuess)) {
         //input is character, now
         //islower() checks if the character is in lower case
         if (islower(cGuess)) {
@@ -116,11 +124,12 @@ int main() {
             break;
         }
         else {
-          //ask the user to use lowercase letters again
+          //ask the user to use lowercase letters
+          //programme will ask the user to enter chracter in lower case until the user does it
           printf("Please, insert a lowercase character.\n");
         }
-     }
-     else {
+    }
+    else {
         //inform the user that input is not valid
         printf("The input is not a character.\n");
     }
