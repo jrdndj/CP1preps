@@ -53,7 +53,7 @@ while(answerForRealz==true) {
 	scanf("%d",&PeopleNum);
 	getchar();
 
-	//creating array for all of the locations,with a bigger number of elements so that i can keep working with it
+	//creating array for all of the locations
 	char GoingTo[PeopleNum][2];
 	for (int i = 0; i < PeopleNum; ++i)
 	{
@@ -106,10 +106,10 @@ for (int i = 0; i < PeopleNum; ++i)
 	case 'G':
 		if(Current>0){
 		GoingDown(Current,0);
-		}
+		}//end if
 		else{
 		GoingUp(Current,0);
-		}
+		}//end else
 		printf("You are on the ground floor\n");
 		Current = 0;
 		break;
@@ -120,7 +120,7 @@ for (int i = 0; i < PeopleNum; ++i)
 		}//end if
 		else{
 			GoingUp(Current,1);
-		}//end if
+		}//end else
 		printf("You are on the 1st floor\n");
 		Current=1;
 		break;
@@ -131,7 +131,7 @@ for (int i = 0; i < PeopleNum; ++i)
 		}//end if
 		else{
 			GoingUp(Current,2);
-		}//end if
+		}//end else
 		printf("You are on the 2nd floor\n");
 		Current=2;
 		break;
@@ -173,7 +173,6 @@ printf("How many new people entered the lift?\n");
 scanf("%d",&NewPeople);
 getchar();
 PeopleNum+=NewPeople;
-//asks where the new people want to go
 //if no one entered it skips to the next iterations
 if(NewPeople==0){
 	continue;
