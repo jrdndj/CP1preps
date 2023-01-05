@@ -56,6 +56,7 @@ int Entry(char entry[])
     
     if(length==1)
     {
+    	//isalpha function to check the character
         if(isalpha(entry[0]))
         {
             floor = 0;
@@ -72,7 +73,8 @@ int Entry(char entry[])
     return floor;
     
 }
-
+//function to continue asking if the user wants to use the elevator
+//if the user enters Y then the elevator is still working and if the user enters anything else the elevator stops and the passengers go out 
 int continuing(char k)
 {
     if(toupper(k)=='Y')
@@ -81,7 +83,7 @@ int continuing(char k)
     }
     return 0;
 }
-
+//function for the possible floors
 void floors()
 {
     printf("Choose your desired floor \n");
@@ -92,13 +94,15 @@ void floors()
     printf("B3 \n");
 }
 
-
+//function for going up and going down 
 void moving(int current_floor, int floor, char entry[])
 {
-    if(current_floor==floor)
+	//if the selected floor is the current floor, the program doesn't do anything
+    	if(current_floor==floor)
         {
             printf("You are already on this floor \n");
         }
+        //if the desired floor is above the current floor, the elevator goes up
         else if(current_floor<floor)
         {
             for(int i=current_floor; i<floor; i++)
@@ -108,6 +112,7 @@ void moving(int current_floor, int floor, char entry[])
             }
             printf("You are on %s floor \n", entry);
         }
+        //if the desired floor is below the current floor, the elevator goes down
         else
         {
             for(int i=current_floor; i>floor; i--)
