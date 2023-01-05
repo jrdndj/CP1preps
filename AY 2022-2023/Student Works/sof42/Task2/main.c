@@ -27,7 +27,7 @@ char* chooseWord() {
 			"celery",		"seabass"
 		};
 	/* 
-		 Declared integer for an index of a random word
+	   Declared integer for an index of a random word
 	   (%10 due to the size of the array of words) 
 	*/
 		int dRandomIndex = rand() % 10;
@@ -84,7 +84,7 @@ void playHangman() {
 			dGuess[dLoopCounter] = '-';
 		}//end for
 
-	// Represent the end of the string
+	// Represent the end of the string (EOS)
 	dGuess[dWordLength] = '\0';
 
 	// Play the game until the user has run out of guesses
