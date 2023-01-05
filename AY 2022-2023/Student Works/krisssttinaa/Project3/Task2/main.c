@@ -43,6 +43,9 @@ int main() {
 
   //Initialize the number of incorrect guesses
   int dWrongGuess = 0;
+  
+  //Declare some variables
+  char cAgain;
 
   //Continue the game until the player has won or lost
   while (dWrongGuess < 8 || cAgain=='y') {
@@ -74,7 +77,7 @@ int main() {
 
     //Check if the user is a winner
     int dVictory = 1;
-    //For loop checks if there is any characters that are not filled 
+    //For loop checks if there are any characters that are not filled 
     //(which means the word is not guessed/not completly guessed)
     for (int i = 0; i < dWordLength; i++) {
       if (sCurWord[i] == '_') {
@@ -83,7 +86,7 @@ int main() {
       }
     }
     //Print a message if the user won
-     if (dVictory) {
+    if (dVictory) {
       printf("\nGAME IS OVER!\nCongratulations!\nYou won!\n \n");
       printf("  ('o')     thank you!\n");
       printf("   _|_ \n");
@@ -96,24 +99,32 @@ int main() {
         break;
     }
 
-    //Ask input from the user
+    //Ask for input from the user
+    //Declare a variable for user's input
     char cGuess;
+    //Ask the user for input until the amount of mistakes is less 7
     while (dWrongGuess < 7) {
-    printf("\nEnter a letter: ");
-    scanf(" %c", &cGuess);
-    //checks the output
-    //isalfa checks if the input is a character
-    if (isalpha(cGuess)) {
-        //islower checks if the character is in lower case
+     printf("\nEnter a letter: ");
+     scanf(" %c", &cGuess);
+     //checks the output
+     //isalfa checks if the input is a character
+     if (isalpha(cGuess)) {
+        //input is character, now
+        //islower() checks if the character is in lower case
         if (islower(cGuess)) {
+            //character is in lower case, so just go further
             break;
-      } else {
-      printf("Please, insert a lowercase character.\n");
-    }
-    } else {
+        }
+        else {
+          //ask the user to use lowercase letters again
+          printf("Please, insert a lowercase character.\n");
+        }
+     }
+     else {
+        //inform the user that input is not valid
         printf("The input is not a character.\n");
     }
-    }
+    }//endOfWhile
 
     //Check if the guess fits
     int dRight = 0;
@@ -133,3 +144,5 @@ int main() {
   }//endOfWhile
   return 0;
 }//endOfMain
+
+//done by Kristina Piiarska 89221337
