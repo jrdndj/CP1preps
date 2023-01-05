@@ -1,5 +1,5 @@
 /*
-    File: Task1_part1.c (missing functionality for multiple users at a time)
+    File: main.c
     Author: SOFIJA KOCHOVSKA
     Student ID: 89221062
     Description: Simulation of an Elevator-Controller Program
@@ -32,8 +32,8 @@ int alightLift(char dAlightInput){
         printf("Incorrect input! Please enter 'y' or 'n'.\n");
         scanf("%c",&dAlightInput);
         getchar();
-    }   
-}//end of function alightLift
+    }// end else   
+}// end of function alightLift
 
 // Function for the lift to go up
 void goUp(int dCurrentFloor, int dDestinationFloor){
@@ -42,8 +42,8 @@ void goUp(int dCurrentFloor, int dDestinationFloor){
         printf("...\n");
         printf("..\n");
         printf(".\n");
-    }//end for
-}//end of function goUp
+    }// end for
+}// end of function goUp
 
 // Function for the lift to go down
 void goDown(int dCurrentFloor, int dDestinationFloor){
@@ -52,26 +52,27 @@ void goDown(int dCurrentFloor, int dDestinationFloor){
         printf(".\n");
         printf("..\n");
         printf("...\n");
-    }//end for
-}//end of function goDown
+    }// end for
+}// end of function goDown
 
+// Function to travel to floors based on the current position of the user
 void travelToFloor(int dCurrentFloor, int dDestinationFloor){
     if(dCurrentFloor > dDestinationFloor){
         goDown(dCurrentFloor, dDestinationFloor);
         dCurrentFloor = dDestinationFloor;
         printf("\nYou are NOW on floor: %d.\n", dCurrentFloor);
-    }
+    }// end if
     else if (dCurrentFloor < dDestinationFloor){
         goUp(dCurrentFloor, dDestinationFloor);
         dCurrentFloor=dDestinationFloor;
         printf("\nYou are NOW on floor: %d.\n", dCurrentFloor);
-    }
+    }// end else if
     else{
         printf("\nYou are already located on this floor.\n");
-    }
+    }// end else
+}// end of function travelToFloor
 
-}
-
+// Main function for the elevator to work
 void rideElevator(){
 // DECLARE VARIABLES
     int dCurrentFloor = 0, dAnswer = 0, dUsersNum, dLoopCounter; // dAnswer set to 0, so while runs for the first time
@@ -95,7 +96,7 @@ while(!dAnswer) {
         getchar();  
     }// end for
     int dLastUser = dUsersNum;
-// ITERATE THROUGH ALL LOCATIONS
+// ITERATE THROUGH ALL LOCATIONS FOR ALL USERS
     for(dLoopCounter = 0; dLoopCounter < dUsersNum; dLoopCounter++){
     
 // Looking at basement cases
@@ -174,13 +175,13 @@ while(!dAnswer) {
         getchar();
     }//end inner for
     dLastUser=dUsersNum;
-    if(dUsersNum==0){
+    if(dUsersNum == 0){
         break;
     }//endif
     // Prompt for AlightInput at every destination
     dAnswer = alightLift(dAlightInput);
     }// end outer for
-    if(dUsersNum==0){
+    if(dUsersNum == 0){
         printf("\nThere aren't any more people in the elevator. Goodbye!\n\n");
         break;
     } //end if      
