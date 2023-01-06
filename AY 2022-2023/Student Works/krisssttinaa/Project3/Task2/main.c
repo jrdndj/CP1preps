@@ -12,6 +12,7 @@
 //Possible words to choose from
 //Mutable pointer to an immutable string/character
 //The const keyword makes a string/character immutable, meaning its content is read-only
+//Source-idea: https://www.geeksforgeeks.org/program-generate-random-alphabets/
 const char* sRandom[] = {
   "americano",
   "espresso",
@@ -41,6 +42,13 @@ void showRules(){ //print rules and info
   The task for user is to guess a word, not casing of letters*/
 }
 
+/*Function is to print the body of the hangman. 
+The body is drawn based on the number of wrong guesses made by the player. 
+If the number of wrong guesses is greater than 0, the head of the hangman is printed. 
+If it is greater than 1, the torso is printed, and so on. This continues until the number
+of wrong guesses is greater than 5, at which point the hangman is fully drawn. 
+The function takes in an integer called dWrongGuess which represents the number of wrong guesses 
+made by the player and prints the hangman accordingly.*/
 void printMan(short dWrongGuess) { //print the body of man
    if (dWrongGuess > 0) { //could also be done with switch
       printf("\n  ________\n");
@@ -168,12 +176,12 @@ int main() {
 /*Just a short note about the feature which is here. 
 I give the opportunity for user to guess the word/the rest of word by entering the whole/the part of word.
 I believe it does not violate the rules, because:
-    1. it does not change the rules, 
-    2. user will still get points for not correct charachters
+    1. it does not change the rules, I mentioned 
+    2. user will still get points for not correct characters
     3. it just gives the opportunity to guess the word immediately
 
-If users sees the rest of word, he does not need to enter it one by one, 
-just write all the characters together and programme will check the validness of each one.
+If user sees the rest of word, he does not need to enter it one by one, 
+just writes all the characters together and programme will check the validness of each one.
 Programme will add points to the dWrongGuess variable, if some characters are not true(or all of them).
 If user guessed all the missed words, then he won.
 
