@@ -1,0 +1,96 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+
+#define MAX_INCORRECT_GUESSES 6
+
+const char *words[] = {
+  "hello",
+  "world",
+  "apple",
+  "banana",
+  "orange",
+  "grape"
+};
+
+int main(void) {
+  srand(time(NULL));
+  
+  // Choose a random word from the array
+  const char *word = words[rand() % (sizeof(words) / sizeof(words[0]))];
+  
+  int word_length = strlen(word);
+  char guess[word_length + 1];
+  memset(guess, '_', word_length);
+  guess[word_length] = '\0';
+  
+  int incorrect_guesses = 0;
+  char letter;
+  int found;
+  
+  while (incorrect_guesses < MAX_INCORRECT_GUESSES) {
+    printf("Word: %s\n", guess);
+    
+    printf("Enter a letter: ");
+    scanf(" %c", &letter);
+    
+    found = 0;
+    for (int i = 0; i < word_length; i++) {
+      if (word[i] == letter) {
+        guess[i] = letter;
+        found = 1;
+      }
+    }
+    
+    if (found) {
+      if (strcmp(word, guess) == 0) {
+        printf("You won! The word was %s\n", word);
+        return 0;
+      }
+    } else {
+      incorrect_guesses++;
+      
+      
+      switch (incorrect_guesses) {
+        case 1:
+          printf(" O\n");
+          break;
+        case 2:
+          printf(" O\n");
+          printf(" |\n");
+          break;
+        case 3:
+          printf(" O\n");
+          printf(" |\n");
+          printf("/ \\\n");
+          break;
+        case 4:
+          printf(" O\n");
+          printf(" |\n");
+          printf("/ \\\n");
+          printf(" |\n");
+          break;
+        case 5:
+          printf(" O\n");
+          printf(" |\n");
+          printf("/ \\\n");
+          printf(" |\n");
+          printf("/ \\\n");
+          break;
+        case 6:
+          printf(" O\n");
+          printf(" |\n");
+          printf("/ \\\n");
+          printf(" |\n");
+          printf("/ \\\n");
+          printf(" |\n");
+          break;
+      }
+    }
+  }
+  
+  printf("You lost! The word was %s\n", word);
+  
+  return 0;
+}
