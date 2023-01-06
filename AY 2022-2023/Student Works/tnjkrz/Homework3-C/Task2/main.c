@@ -1,131 +1,252 @@
+/*
+*
+*		THE HANGMAN GAME
+*
+*/
+
+
+/*
+	Addition of useful headerfiles which
+	allow for the use of printf, scanf, string functions,
+	booleans, etc.
+*/
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 #include <stdbool.h>
 #include <time.h>
-#include <math.h>
+
+/*
+
+	Functions (Modular Programming)
+	Source: Computer Practicum 2022/23, Week 12 - Functions, Slide 5-6
+*/
+
+
+//prints useful information/instructions for user
+void infoprint(){
+
+	//Source for printf: Computer Practicum 2022/23, Week 9 - C, Slide 19
+
+	printf("\nTo guess, just type a lowercase letter!\n"
+			"If you would like to give up, type 'quit'.\n"
+			"You make 7 mistakes and you are hung!\n");
+}
+
+void drawHangman(int wrongGuessNum){
+	printf("Wrong Guesses: %d \n", wrongGuessNum);
+
+	//Source: Computer Practicum 2022/23, Week 10 - C, Slide 3
+
+	//use of switch statement to procedually draw the hangman, depending on num of wrong guesses
+	switch(wrongGuessNum){
+		case 1:
+			printf("\n    __|__\n\n");
+			break;
+		case 2:
+			printf("\n      |\n      |\n      |\n      |\n      |\n    __|__\n\n");
+			break;
+		case 3:
+			printf("\n -----|\n      |\n      |\n      |\n      |\n    __|__\n\n");
+			break;
+		case 4:
+			printf("\n -----|\n |    |\n o    |\n      |\n      |\n    __|__\n\n");
+			break;
+		case 5:
+			printf("\n -----|\n |    |\n o    |\n I    |\n      |\n    __|__\n\n");
+			break;
+		case 6:
+			printf("\n -----|\n |    |\n o    |\n-I-   |\n      |\n    __|__\n\n");
+			break;
+		case 7:
+			printf("\n -----|\n |    |\n o    |\n-I-   |\n/ /   |\n    __|__\n\n");
+			break;
+		default:
+			break;	
+	}
+}
 
 
 /*
 
-  Hangman Game
+
+	Main Method
+	Source: Computer Practicum 2022/23, Week 12 - Functions, Slide 7
 
 */
 
 int main(){
 
-  bool userWon = false;
+	/*
+		Variables
 
-      //char that keeps track of user guess
-  char userGuess[4];
+		Source: Computer Practicum 2022/23, Week 09 - C, Slides 14-15
 
-  int wrongGuessCount = 0;
+		For Booleans: https://www.w3schools.com/c/c_booleans.php
+		For arrays: Computer Practicum 2022/23, Week 10 - C, Slides 10-11
+	*/
 
-    //creating array for the randomly selected word from multidimensional array
-  char selectedWord[9];
+		//boolean variable to keep track if user made an incorrect guess
+	bool incorrectGuess = true;
 
-    //creating array for representing the randomly selected word in question marks
-  char questionMarksWord[9];
+			//char that keeps track of user guess
+			//the reason of length 4 is due to the option for user to type 'quit'
+	char userGuess[4];
 
-   time_t t;
+		//count to keep track of wrong attempts/guesses
+	short int wrongGuessCount = 0;
 
-  /*
-    Creating multidimensional array w/ 6 rows and 9 columns.
-    This is done because there is 6 words and, while the largest
-    word is 6 characters long, in case you want to add longer, words,
-    it is set to 9. If more words are added, another row should
-    be added each time and if the word is bigger than 9 characters,
-    increase it to the length of the biggest word.
+		//creating array for the randomly selected word from multidimensional array
+	char selectedWord[9];
 
-    Source: www.programiz.com/c-programming/c-multi-dimensional-arrays
-  */
+		//creating an array for representing the randomly selected word in question marks
+	char questionMarksWord[9];
 
-  char words[6][9] = {"abyss", "wyvern", "coal", 
-  "fancy", "axiom", "nymph"};
+	/*
+		Creating multi(two)dimensional array w/ 6 rows and 9 columns.
+		This is done because there is 6 words and, while the largest
+		word is 6 characters long, in case you want to add longer, words,
+		it is set to 9. If more words are added, another row should
+		be added each time and if the word is bigger than 9 characters,
+		increase it to the length of the biggest word.
 
-  /*
-    Pick random word in multidimensional array by picking
-    a random index from 0 to 5 using rand() (and saving it to
-    int variable). Then, setting the selectedWord variable
-    to the word at the randomly picked index, and settng
-    the questionMarksWord to as many question marks as the length
-    of the selected word.
+		Source: www.programiz.com/c-programming/c-multi-dimensional-arrays
+	*/
 
-    Source: https://stackoverflow.com/questions/33380282/how-does-rand-work-in-c
-        https://stackoverflow.com/questions/822323/how-to-generate-a-random-int-in-c
-  */
+	char words[6][9] = {"abyss", "wyvern", "coal", 
+	"fancy", "axiom", "nymph"};
 
-    //initializes random
-    srand((unsigned) time(&t));
-    int randIndex = (rand() % 6);
+	/*
+		Pick random word in multidimensional array by picking
+		a random index from 0 to 5 using rand() (and saving it to
+		short int variable). Then, setting the selectedWord variable
+		to the word at the randomly picked index, and settng
+		the questionMarksWord to as many question marks as the length
+		of the selected word.
 
-    for (int i = 0; i < strlen(words[randIndex]); ++i)
-    {
-      selectedWord[i] = words[randIndex][i];
-      questionMarksWord[i] = '?';
-    }
+		Source: https://stackoverflow.com/questions/33380282/how-does-rand-work-in-c
+				https://stackoverflow.com/questions/822323/how-to-generate-a-random-int-in-c
+	*/
 
-    //welcomes user to the game
-    printf("Welcome to the Hangman Game!\n"
-      "Best of luck!\n");
+		//initializes random
+		srand(time(0));
+		short int randIndex = (rand() % 6);
 
-  /*
 
-    Game Loop
+		//Source for for loop: Computer Practicum 2022/23, Week 9 - C, Slide 23
+		//Source for strlen: Computer Practicum 2022/23, GitHub, CP1preps/Slides/09-14 C/Week 10 codes/Class Notes 11122020.txt
+		for (int i = 0; i < strlen(words[randIndex]); ++i)
+		{
+			selectedWord[i] = words[randIndex][i];
+			questionMarksWord[i] = '?';
+		}
 
-  */
+		//welcomes user to the game
+		printf("Welcome to the Hangman Game!\n"
+			"Best of luck!\n");
 
-    //game loops until user guesses correctly or runs out of guesses
-    while (!userWon && wrongGuessCount < 7){
-      
-      printf("\nTo guess, just type a lowercase letter!\n"
-      "If you would like to give up, type 'quit'.\n"
-      "You make 7 mistakes and you are hung!\n");
+	/*
 
-      //prints useful information for user and takes user guess
-      printf("\nHangman Word: %s \n" "Wrong Guesses: %d \n", questionMarksWord, wrongGuessCount);
-      
-      //DRAW HANGMAN HERE
 
-      printf("Guess: ");
-      scanf("%s", userGuess);
+		Game Loop
 
-      //somekind of check for wrong input
-      //if (userGuess[0] >= 'a' && userGuess[0] <= 'z')
-      //https://beginnersbook.com/2017/09/c-program-to-check-whether-a-character-is-an-alphabet-or-not/
 
-      /*
-        Uses strcmp() function to compare if user guess
-        is equal to 'quit'. If yes, the function will return 0,
-        (hence the check for if function return value is == 0)
-        and lets the user know what the word was
-        and terminates program.
+	*/
 
-        Source: https://www.programiz.com/c-programming/library-function/string.h/strcmp
-      
-      */
-      if (strcmp(userGuess, "quit") == 0){
-              printf("The word was %s.\n"
-                "Better luck next time!",selectedWord);
-              return 0;
+		//game loops until user guesses correctly or runs out of guesses
+		//Source for while loop: Computer Practicum 2022/23, Week 9 - C, Slide 24
+		while (wrongGuessCount < 7){
+			infoprint(); //prints basic game info
 
-          } else {
+			//prints useful information for user and takes user guess
+			printf("\nHangman Word: %s \n", questionMarksWord);
+			drawHangman(wrongGuessCount);
+			printf("Guess: ");
+
+			//Source for scanf: Computer Practicum 2022/23, Week 9 - C, Slide 19
+			scanf("%s", userGuess);
+
+			/*
+				Uses strcmp() function to compare if user guess
+				is equal to 'quit'. If yes, the function will return 0,
+				(hence the check for if function return value is == 0)
+				and lets the user know what the word was
+				and terminates program.
+
+				Source: https://www.programiz.com/c-programming/library-function/string.h/strcmp
+			
+			*/
+
+			//Source for if statement: Computer Practicum 2022/23, Week 9 - C, Slide 20
+			if (strcmp(userGuess, "quit") == 0){
+            	printf("The word was %s.\n"
+            		"Better luck next time!",selectedWord);
+            	return 0;
             
 
-            //for loop that checks if letter is equal to any
-            //letter in selected word
+            /*
+				Checks if userGuess has a length of 1 and if the first 
+				character is a lowercase letter a-z. If yes, checks
+				if character is in randomly picked word.
 
+				Source: https://beginnersbook.com/2017/09/c-program-to-check-whether-a-character-is-an-alphabet-or-not/
+            */
 
-            //if word solved, user won and exit program
+        	} 
 
-          } 
+        	//Source for if else statement: Computer Practicum 2022/23, Week 9 - C, Slide 21
+        	if (strlen(userGuess) == 1 && (userGuess[0] >= 'a' && userGuess[0] <= 'z')){
+        		
+        		//assigns true each time, in case it was set to false in previous loop iteration
+        		incorrectGuess = true;
 
-    }
+        		//loops through selected word and checks at each index if it is equal to user guess,
+        		//if yes, set the same index in questionMarksWord to the user's guess and set incorrectGuess to false (it is a correct guess)
+        		for (int i = 0; i < strlen(selectedWord); ++i)
+        		{
+        			if (selectedWord[i] == userGuess[0]) {
+        				questionMarksWord[i] = userGuess[0];
+        				incorrectGuess = false;
+        			}
+        		}
 
-    //if user runs out of guesses
-    printf("\nYou ran out of guesses!\n"
+        		//if no correct guess, add to wrong guess count
+        		if (incorrectGuess){
+        			wrongGuessCount++;
+        		}
+
+        		//if full word has been completed/guessed, victory!
+        		if (strcmp(questionMarksWord, selectedWord) == 0){
+        			printf("\nCongratulations!\n"
+        				"You correctly guessed the word: %s\n", selectedWord);
+        			return 0;
+        		}
+
+        	} 
+
+        	/*
+				If the if statement before is false, the user is
+				informed about their incorrect input and the next
+				iteration of the while loop begins.
+        	*/
+
+        	else {
+        		printf("\nWrong input!\n"
+        				"Try again!\n");
+
+        		//Source for for loop: Computer Practicum 2022/23, Week 10 - C, Slide 5
+        		continue;
+        	}
+
+		}
+
+		//if user runs out of guesses, game over
+		drawHangman(wrongGuessCount);
+		printf("\nYou ran out of guesses!\n"
                 "The word was %s.\n"
-                "Better luck next time!\n"
-                ,selectedWord);
+                "Better luck next time!\n",selectedWord);
+
+		return 0;
 
 }//end of main
