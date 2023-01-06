@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdlib.h> 
 #include <time.h>   
+#include <ctype.h>  //we ned this library to use isalpha function
 
 #define WordLength 25 
 #define MaxGuesses 3
@@ -56,12 +57,15 @@ int main()
 
     if(!isalpha (Letter)){
       printf("The game accepts letters only. \n");
-      continue;
+     
     }
     
                          
 
-    //if letetrs are found
+    //if letters are found
+	  
+	  LetterFound=0;
+	  
   	for (int i = 0; i < WordLength; ++i){
 
   		if (Words[i] == Letter){
@@ -111,7 +115,7 @@ int main()
       //when we reach the max number of wrong guesses we've lost the game
 
   		if (Guesses == MaxGuesses){
-  			printf(" \n You have lost the game! \n");    //\n on both sides so when the hangman is fully drawn we get the statement in the second line
+  			printf(" \n You have lost the game! \n");    //\n on both sides so when the hangman is fully drawn we get the statement in the next line
   		}// endIf
 
   	}//endElse
