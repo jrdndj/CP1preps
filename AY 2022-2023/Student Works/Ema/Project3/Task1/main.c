@@ -55,37 +55,37 @@ return floor;
 void NumberToFloorName(int floor){
 	switch ( floor) {
     case -3:
-	   printf("B3" \n );
+	   printf("B3  \n" );
 	   break;
 	case -2:
-	   printf("B2" \n);
+	   printf("B2 \n");
 	   break;
 	case -1:
-	   printf("B1" \n);
+	   printf("B1 \n");
 	   break;
 	case 0:
-	   printf("G" \n);
+	   printf("G \n");
 	   break;
 	case 1:
-	   printf("1" \n);
+	   printf("1 \n");
 	   break;
 	case 2:
-	   printf("2" \n);
+	   printf("2 \n");
 	   break;
 	case 3:
-	   printf("3" \n);
+	   printf("3 \n");
 	   break;
 	case 4:
-	   printf("4" \n);
+	   printf("4 \n");
 	   break;
 	case 5:
 	  printf("5 \n");
 	  break;
 	case 6:
-	  printf("6" \n);
+	  printf("6 \n");
 	  break;
 	case 7:
-	  printf("Exit" \n);
+	  printf("Exit \n");
 	  break;
 
 	}
