@@ -21,7 +21,8 @@ int Floor(char WantedFloor[]){
 		floor = -1;
 	}
 	else{
-		switch ( WantedFloor[3])
+		switch ( WantedFloor[3]) { 
+				
 		case 'E':  //so a player can exit
 		    floor = 7;
 		    break;
@@ -47,14 +48,18 @@ int Floor(char WantedFloor[]){
 		   floor = 6;
 		   break;
 
-	}
-}
-return floor;
+	    } //endSwitch
+
+	} //endIf
+	return floor;
+	
+
+ 
 
 
 void NumberToFloorName(int floor){
 	switch ( floor) {
-    case -3:
+        case -3:
 	   printf("B3  \n" );
 	   break;
 	case -2:
@@ -91,3 +96,24 @@ void NumberToFloorName(int floor){
 	}
 
 }
+	
+void move_elevator(int destination){
+	printf("Moving %s to floor \n" );
+}
+
+int main()
+{
+	int initial_floor=0, wanted_floor, passenger;
+
+while(1){
+
+	//the current floor
+	printf("You are currently on floor ");
+	NumberToFloorName(current_floor);
+
+	//as the plauyer which floort hey want to go to
+	char destination [9];
+	printf("Hey, which floor would you like to go to (B3, B2, B1,G,1,2,3,4,5)?\n");
+    scanf("%s", destination);
+
+
