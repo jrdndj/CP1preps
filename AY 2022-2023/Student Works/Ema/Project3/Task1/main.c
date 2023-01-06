@@ -111,9 +111,54 @@ while(1){
 	printf("You are currently on floor ");
 	NumberToFloorName(current_floor);
 
-	//as the plauyer which floort hey want to go to
+	//as the player which floor hey want to go to
 	char destination [9];
 	printf("Hey, which floor would you like to go to (B3, B2, B1,G,1,2,3,4,5)?\n");
     scanf("%s", destination);
+	//if the wanted floor is the same to the current one
+     if (wanted_floor==current_floor){
+    	printf("You are already on this floor \n");
+    }
+
+
+    //road of the elevatior based on the current position
+    if (wanted_floor > current_floor){
+    	direction = "up";
+    }
+     else if(wanted_floor < current_floor){
+    	direction="down";
+    }else {  //wanted is equal so do nothing
+
+    }
+
+    move_elevator(wanted_floor);
+
+    if (direction == "up"){
+    	current_floor++;
+    }
+    else{
+    	current_floor--;
+    }
+
+}
+
+
+	return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
