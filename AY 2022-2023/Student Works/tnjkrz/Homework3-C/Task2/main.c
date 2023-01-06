@@ -25,7 +25,7 @@
 
 
 //prints useful information/instructions for user
-void infoprint(){
+void infoPrint(){
 
 	//Source for printf: Computer Practicum 2022/23, Week 9 - C, Slide 19
 
@@ -34,13 +34,13 @@ void infoprint(){
 			"You make 7 mistakes and you are hung!\n");
 }
 
-void drawHangman(int wrongGuessNum){
-	printf("Wrong Guesses: %d \n", wrongGuessNum);
+void drawHangman(int wrong_guess_num){
+	printf("Wrong Guesses: %d \n", wrong_guess_num);
 
 	//Source: Computer Practicum 2022/23, Week 10 - C, Slide 3
 
 	//use of switch statement to procedually draw the hangman, depending on num of wrong guesses
-	switch(wrongGuessNum){
+	switch(wrong_guess_num){
 		case 1:
 			printf("\n    __|__\n\n");
 			break;
@@ -71,7 +71,7 @@ void drawHangman(int wrongGuessNum){
 /*
 
 
-	Main Method
+	Main Function
 	Source: Computer Practicum 2022/23, Week 12 - Functions, Slide 7
 
 */
@@ -88,20 +88,20 @@ int main(){
 	*/
 
 		//boolean variable to keep track if user made an incorrect guess
-	bool incorrectGuess = true;
+	bool incorrect_guess = true;
 
 			//char that keeps track of user guess
 			//the reason of length 4 is due to the option for user to type 'quit'
-	char userGuess[4];
+	char user_guess[4];
 
 		//count to keep track of wrong attempts/guesses
-	short int wrongGuessCount = 0;
+	short int wrong_guess_count = 0;
 
 		//creating array for the randomly selected word from multidimensional array
-	char selectedWord[9];
+	char selected_word[9];
 
 		//creating an array for representing the randomly selected word in question marks
-	char questionMarksWord[9];
+	char question_marks_word[9];
 
 	/*
 		Creating multi(two)dimensional array w/ 6 rows and 9 columns.
@@ -120,9 +120,9 @@ int main(){
 	/*
 		Pick random word in multidimensional array by picking
 		a random index from 0 to 5 using rand() (and saving it to
-		short int variable). Then, setting the selectedWord variable
+		short int variable). Then, setting the selected_word variable
 		to the word at the randomly picked index, and settng
-		the questionMarksWord to as many question marks as the length
+		the question_marks_word to as many question marks as the length
 		of the selected word.
 
 		Source: https://stackoverflow.com/questions/33380282/how-does-rand-work-in-c
@@ -131,15 +131,15 @@ int main(){
 
 		//initializes random
 		srand(time(0));
-		short int randIndex = (rand() % 6);
+		short int rand_index = (rand() % 6);
 
 
 		//Source for for loop: Computer Practicum 2022/23, Week 9 - C, Slide 23
 		//Source for strlen: Computer Practicum 2022/23, GitHub, CP1preps/Slides/09-14 C/Week 10 codes/Class Notes 11122020.txt
-		for (int i = 0; i < strlen(words[randIndex]); ++i)
+		for (int i = 0; i < strlen(words[rand_index]); ++i)
 		{
-			selectedWord[i] = words[randIndex][i];
-			questionMarksWord[i] = '?';
+			selected_word[i] = words[rand_index][i];
+			question_marks_word[i] = '?';
 		}
 
 		//welcomes user to the game
@@ -156,16 +156,16 @@ int main(){
 
 		//game loops until user guesses correctly or runs out of guesses
 		//Source for while loop: Computer Practicum 2022/23, Week 9 - C, Slide 24
-		while (wrongGuessCount < 7){
-			infoprint(); //prints basic game info
+		while (wrong_guess_count < 7){
+			infoPrint(); //prints basic game info
 
 			//prints useful information for user and takes user guess
-			printf("\nHangman Word: %s \n", questionMarksWord);
-			drawHangman(wrongGuessCount);
+			printf("\nHangman Word: %s \n", question_marks_word);
+			drawHangman(wrong_guess_count);
 			printf("Guess: ");
 
 			//Source for scanf: Computer Practicum 2022/23, Week 9 - C, Slide 19
-			scanf("%s", userGuess);
+			scanf("%s", user_guess);
 
 			/*
 				Uses strcmp() function to compare if user guess
@@ -179,9 +179,9 @@ int main(){
 			*/
 
 			//Source for if statement: Computer Practicum 2022/23, Week 9 - C, Slide 20
-			if (strcmp(userGuess, "quit") == 0){
+			if (strcmp(user_guess, "quit") == 0){
             	printf("The word was %s.\n"
-            		"Better luck next time!",selectedWord);
+            		"Better luck next time!", selected_word);
             	return 0;
             
 
@@ -196,30 +196,30 @@ int main(){
         	} 
 
         	//Source for if else statement: Computer Practicum 2022/23, Week 9 - C, Slide 21
-        	if (strlen(userGuess) == 1 && (userGuess[0] >= 'a' && userGuess[0] <= 'z')){
+        	if (strlen(user_guess) == 1 && (user_guess[0] >= 'a' && user_guess[0] <= 'z')){
         		
         		//assigns true each time, in case it was set to false in previous loop iteration
-        		incorrectGuess = true;
+        		incorrect_guess = true;
 
         		//loops through selected word and checks at each index if it is equal to user guess,
         		//if yes, set the same index in questionMarksWord to the user's guess and set incorrectGuess to false (it is a correct guess)
-        		for (int i = 0; i < strlen(selectedWord); ++i)
+        		for (int i = 0; i < strlen(selected_word); ++i)
         		{
-        			if (selectedWord[i] == userGuess[0]) {
-        				questionMarksWord[i] = userGuess[0];
-        				incorrectGuess = false;
+        			if (selected_word[i] == user_guess[0]) {
+        				question_marks_word[i] = user_guess[0];
+        				incorrect_guess = false;
         			}
         		}
 
         		//if no correct guess, add to wrong guess count
-        		if (incorrectGuess){
-        			wrongGuessCount++;
+        		if (incorrect_guess){
+        			wrong_guess_count++;
         		}
 
         		//if full word has been completed/guessed, victory!
-        		if (strcmp(questionMarksWord, selectedWord) == 0){
+        		if (strcmp(question_marks_word, selected_word) == 0){
         			printf("\nCongratulations!\n"
-        				"You correctly guessed the word: %s\n", selectedWord);
+        				"You correctly guessed the word: %s\n", selected_word);
         			return 0;
         		}
 
@@ -242,10 +242,10 @@ int main(){
 		}
 
 		//if user runs out of guesses, game over
-		drawHangman(wrongGuessCount);
+		drawHangman(wrong_guess_count);
 		printf("\nYou ran out of guesses!\n"
                 "The word was %s.\n"
-                "Better luck next time!\n",selectedWord);
+                "Better luck next time!\n",selected_word);
 
 		return 0;
 
