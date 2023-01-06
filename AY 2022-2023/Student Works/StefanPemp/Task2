@@ -1,0 +1,56 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+
+// These are five words that will soon be randomly chosen. This is a pointer of an array of characters
+const char *words[] = {"coal", "carton", "pizza", "anime", "cupid"};
+
+// Maximum number of incorrect guesses that are allowed, 7.
+const int MaxIncorrect = 8;
+
+/*
+Declaring two void functions (Void functions have no return!).
+One void function is for drawing the hangman and the other
+for the playing the hangman (Which is the more important part since it consists of all the logic).
+*/
+void DrawingHangman(int Incorrect);
+void PlayingHangman();
+
+
+//main
+int main(){ 
+    srand(time(0)); // This generates a random integer number in order to select a word from the pointer of an array of characters
+                    // also known as "const char *words[] = {"coal", "carton", "pizza", "anime", "cupid"};"
+
+    PlayingHangman(); // PlayingHangman is a function, we are just calling it to the main part
+    return 0;
+}
+
+//
+void DrawingHangman(int Incorrect)
+{
+    // We draw the hangman by using an array of strings.
+    // Maximum incorrect number of guesses is 6.
+    const char *hangman[] = {
+        " _________\n", // 1st incorrect guess
+        " |/    |\n",   // 2nd incorrect guess
+        " |     0\n",   // 3rd incorrect guess
+        " |    /|\\\n", // 4th incorrect guess
+        " |     |\n",   // 5th incorrect guess
+        " |    / \\\n", // 6th incorrect guess
+        "_|_______\n"}; // 7th incorrect guess
+
+    // The hangman is being printed by drawing it up to the current incorrect guess count
+    // by using the array below so that it will count how many incorrect guesses it has.
+    for (int i = 0; i < Incorrect; i++)
+        printf("%s", hangman[i]);
+}
+
+void PlayingHangman(){
+    // We choose a random word of the array by the usage of the pointer so it selects one of the five words
+    // we have mentioned: {"coal", "carton", "pizza", "anime", "cupid"}
+    const char *word = words[rand() % 5];
+    // Putting each of the characters in a string length of the word
+    int WordLen = strlen(word);
+}
