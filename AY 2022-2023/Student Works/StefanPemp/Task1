@@ -1,0 +1,150 @@
+//Task 1, Elevator
+
+#include <stdio.h>
+#include <stdlib.h> //using this library just for "exit(0);"
+
+// We declare the following two variables as global variables so we can access them in further functions.
+int CurrentFloor = 0; // This determines the current floor we are at: 0 = Ground floor, 1 = first floor, 2 = second floor, etc.
+int direction = 1;
+/*
+The elevator either goes up or down, or it has a direction. I used 1 in order to determine its direction.
+1 for going up, -1 for going down.
+This can also be done as direction++ or direction--, it is the same thing.
+*/
+
+// Declaring several functions
+// void functions do not require a return.
+void ElevatorPosition(int NextDestination); // Function where the user changes the destination of the elevator, going up or down.
+void PassengerIn();                         // Function that will display a message of the user entering the elevator
+int UserEntryForFloor();                    // Function for the User Input. (G,1,2,3,4,5,X[exit]);
+
+int main(){ // main
+
+    // Initialize elevator at ground floor with no passenger
+    CurrentFloor = 0;
+    direction = 1;
+
+    while (1){ // Loops for an infinite amount of times until a break statement is issued explicitly.
+
+        // Passenger has entered the elevator.
+        PassengerIn();
+
+        // Print current state of the elevator
+        printf("Elevator is currently at floor: %d\n", CurrentFloor);
+
+        // Get destination floor from user input
+        int NextDestination = UserEntryForFloor();
+
+        // This moves the position of the elevator to the destination floor that the user can enter.
+        ElevatorPosition(NextDestination);
+
+    } // end while
+    return 0;
+} // end main
+
+// Function to move the elevator to the specified floor
+void ElevatorPosition(int NextDestination){
+    // This sets the direction of the elevator. The elevator can either go up or down.
+
+    /*elevator goes up IF the destination is greater than the current floor
+    e.g. We are on the 2nd floor. If we enter number four, the elevator will go up to the 4th floor.
+    */
+    if (NextDestination > CurrentFloor){
+        direction = 1;
+    }
+    /*ELSE the elevator will go down
+    e.g. We are on the 4th floor. If we enter number two, the elevator will go down to the 2nd floor.
+    */
+    else{
+        direction = -1;
+    }
+    /*
+    This while loop moves the elevator to the destination floor.
+    So, if we enter ANY given number (G,1,2,3,4,5) that is different than the current floor,
+    then the elevator will either move up or down.
+    */
+    while (CurrentFloor != NextDestination){
+        CurrentFloor = CurrentFloor + direction;
+        printf(" ---- \n");
+        printf("|    |\n");
+        printf("|   %d|\n", CurrentFloor);
+        printf("|    |\n");
+        printf("|    |\n");
+        printf("|    |\n");
+        printf(" ---- \n");
+        // A visual reperesentation of the elevator :D
+    }
+} // end ElevatorPosition
+
+// Function that sends a message on the screen when the passenger has entered the elevator
+void PassengerIn(){
+    printf("The passenger has entered the elevator\n");
+}
+
+// Function for the user to enter the name of the floor. (G or g for ground, 1 for first floor, etc.)
+int UserEntryForFloor(){
+    char dEntry[5]; // char dEntry is [5], or in other words  dEntry[5] = (G[0],1,2,3,4,5)
+    int dFloor;
+
+    // Prompt the user for input until a valid floor is entered
+    while (1){
+        printf("Enter a floor number (G - Ground / 1 - 5 for the rest of the floors / B - Basement, then 1-3 to go to B1, B2 or B3 / X - Exits the program): \n");
+        scanf("%s", dEntry);
+        /*
+        It's more convinient to enter a string,
+        since we also need to add 'G' and/or 'g', if it wasn't for that
+        we could have just used an integer, or "%d"
+        */
+        if (dEntry[0] == 'G' || dEntry[0] == 'g'){
+            dFloor = 0;
+            break;
+        }
+        /*
+        The user goes to the Basement by entering 'B' or 'b', and after that he is asked again to write the number
+        to the basement floor he wants to go, which is 1, 2 or 3.
+        */
+        else if (dEntry[0] == 'B' || dEntry[0] == 'b'){
+            // Goes to B1
+            if (dEntry[1] == '1'){
+                dFloor = 0 - dEntry[1];
+                break;
+            }
+            // Goes to B2
+            if (dEntry[1] == '2'){
+                dFloor = 0 - dEntry[1];
+                break;
+            }
+            // Goes to B3
+            if (dEntry[1] == '3'){
+                dFloor = 0 - dEntry[1];
+                break;
+            }
+        }
+        else if (dEntry[0] == 'X' || dEntry[0] == 'x'){
+            exit(0);
+        }
+        /*
+        The upper statement checks if the user has enthered ither "G" or "g" as an entry for the ground.
+        If they have entered either "G" or "g" then they will go at the bottom of the elevator (the ground)
+        by using "dFloor = 0;" and the "break" is used for terminating the execution or as an exit of the loop,
+        which in this case we have used a while loop.
+        */
+        // Check if input is a valid floor number
+        else if (dEntry[0] >= '1' && dEntry[0] <= '5'){
+            dFloor = dEntry[0] - '0'; // G = 0
+            break;
+        }
+        // The Else If statement checks whether the user has input a valid number (1,2,3,4,5)
+
+        else{
+            printf("Invalid entry! Try again!\n");
+            continue;
+        }
+        /*
+        When the entry is invalid, and the user is asked to enter an entry once again.
+        the "continue" command helps us do this by letting the user enter an entry over and over again
+        until they have entered the correct one.
+        */
+    }
+    return dFloor; // Return the value of the floor
+} // end UserEntryForFloor
