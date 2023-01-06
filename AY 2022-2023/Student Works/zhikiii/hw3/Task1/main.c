@@ -1,3 +1,9 @@
+/*
+    Zhivko Stoimchev, 89221056
+    Elevator controller program
+    06.01.23', from Kavadarci
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
