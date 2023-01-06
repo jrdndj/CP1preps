@@ -1,3 +1,9 @@
+/*
+    Zhivko Stoimchev, 80221056
+    Hangman game
+    06.01.23' from Kavadarci
+*/
+
 #include <stdio.h>  //standard input/output library
 #include <stdlib.h> //this
 #include <time.h>   //and this stand for using randon number generator
@@ -110,7 +116,7 @@ int main()
         cBody[i] = ' ';
 
     // this also is to be continued..:(
-    char sWrongLetters[6] = ""; // remembering the mistaken letters
+    // char sWrongLetters[6] = ""; // remembering the mistaken letters
     // end declaration of variables======================================================================================
 
     // here starts the game, it goes untill number of mistakes are less than 6
@@ -119,8 +125,8 @@ int main()
         //  drawing the hangman using function
         draw_hangman(cBody);
 
-        // to be continued line of code... keeping track og missed letters
-        printf("Missed letters: %s\n", sWrongLetters);
+        // keeping track og missed letters
+        // printf("Missed letters: %s\n", sWrongLetters);
 
         // print the word with underscores, letters that are guessed will also be displayed
         print_blank_word(sTempArr);
@@ -134,7 +140,7 @@ int main()
         {
             dHangman++;                  // increasing hangman, mistakes
             body_parts(dHangman, cBody); // reasigning values to body parts
-            strncat(sWrongLetters, &cNewLetter, 1); //keep track of wrong letters entered by the user
+            // strncat(sWrongLetters, &cNewLetter, 1); //append wrong letters to empty string
         }
 
         int dCounter = 0; // counter that counts number of underscores
@@ -151,7 +157,7 @@ int main()
         printf("You lost :(\n");
     else
         printf("You win :)\n");
-    printf("Wrong letters: %s\n", sWrongLetters);
+    // printf("Wrong letters: %s\n", sWrongLetters);
     draw_hangman(cBody);
     printf("The correct word was: ");
     print_blank_word(sRandomWord);
