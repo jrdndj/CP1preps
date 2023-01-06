@@ -4,6 +4,7 @@
 
 #define LEAST_FLOOR -3    //the  min floor the elevator can go to
 #define GREATEST_FLOOR 5  //the max floor the elevator can go to
+#define MAX_CAPACITY 10
 
 int current_floor = 0;
 char*  direction = "up";  //the elevator is moving up
@@ -103,41 +104,68 @@ void move_elevator(int destination){
 
 int main()
 {
-	int initial_floor=0, wanted_floor, passenger;
+	int initial_floor=0, wanted_floor, 
+	int passenger=1;
+	char answer;
 
 while(1){
+	
+	//welcoming the passenger to the elevator but it depends on the number of ppl already there
+	printf("Do you want to enter the elevator? \n");
+	scanf("%s", &answer);
+	
+	if(answer == "yes" ||  passenger < MAX_CAPACITY)
+	{
+		passenger++;
+	}else {
+		printf("Sorry the elevator is full. You have to wait \n");
+	}
 
 	//the current floor
 	printf("You are currently on floor ");
 	NumberToFloorName(current_floor);
 
-	//as the player which floor hey want to go to
+	//ask the player which floor hey want to go to
 	char destination [9];
 	printf("Hey, which floor would you like to go to (B3, B2, B1,G,1,2,3,4,5)?\n");
     scanf("%s", destination);
+	
 	//if the wanted floor is the same to the current one
      if (wanted_floor==current_floor){
     	printf("You are already on this floor \n");
     }
 
 
-    //road of the elevatior based on the current position
-    if (wanted_floor > current_floor){
+    //road of the elevator based on the current position
+    if (wanted_floor > current_floor){            //if the number of the wanted floorn is less than the current one, the elevator goes up
     	direction = "up";
     }
-     else if(wanted_floor < current_floor){
+     else if(wanted_floor < current_floor){      //if not it goes down
     	direction="down";
-    }else {  //wanted is equal so do nothing
+    }else {                                
 
     }
 
     move_elevator(wanted_floor);
 
-    if (direction == "up"){
+    if (direction == "up"){         //if the elevator is going up increace the floor
     	current_floor++;
     }
     else{
-    	current_floor--;
+    	current_floor--;        //if not decrease it
+    }
+	
+	//when we reach the last floor 
+    if (floor == '5')  {
+    	for (int i = 0; i < passenger; ++i) {
+	
+          printf("Hey  you have reached the fifth floorn fo you want to leave ?\n");
+          scanf("%s ", &answer);
+    	  if (answer == '7'){
+    	        passenger--;
+    	   }
+    	}
+
     }
 
 }
@@ -145,20 +173,5 @@ while(1){
 
 	return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
