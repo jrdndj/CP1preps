@@ -54,8 +54,9 @@ int main()
     
      // to make sure a player only inputs the letters 
 
-    if(Letter != "abcčdefghijklmnoprsštuvzžqwđy" ) {
-      printf("The program accepts letter only, \n");
+    if(!isalpha (Letter)){
+      printf("The game accepts letters only. \n");
+      continue;
     }
     
                          
