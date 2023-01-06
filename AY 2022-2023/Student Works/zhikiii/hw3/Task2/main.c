@@ -1,7 +1,7 @@
 #include <stdio.h>  //standard input/output library
 #include <stdlib.h> //this
 #include <time.h>   //and this stand for using randon number generator
-#include <string.h>
+#include <string.h> //for string usage
 
 // function to draw the hangman
 void draw_hangman(char cBody[])
@@ -16,7 +16,7 @@ void draw_hangman(char cBody[])
     // each body part is represented in seperate element in body array
 }
 
-// function to print array with spaces between letters
+// function to print array with spaces between the letters
 void print_blank_word(char sTempArr[])
 {
     for (int j = 0; j < strlen(sTempArr); j++)
@@ -36,12 +36,11 @@ int check_letter(char sRandomWord[], char cNewLetter, char sTempArr[])
         {
             sTempArr[i] = cNewLetter;
             dCount++;
-        }
-    }
-    // if the counter is different than one, it means that we found at least one correct letter in the word
+        } // endif
+    }     // endfor
+
     if (dCount != 0)
         dFlag = 1;
-    // we return the flag, 0 for false 1 for true
     return dFlag;
 }
 
@@ -49,7 +48,7 @@ int check_letter(char sRandomWord[], char cNewLetter, char sTempArr[])
 void body_parts(int dHangman, char cBody[])
 {
     // based on mistakes the user made, we asign characters in the array as body parts,
-    // which are later printed
+    // which are later printed (lihe head, arm, body..)
     if (dHangman == 1)
     {
         cBody[0] = '(';
@@ -87,16 +86,17 @@ int main()
 {
     // NOTATION: I use pointers with chars, for one reason, which is not to define length of the char
     // I think this way it is better because we do not asign value which may never be used
-    // this is something my teacher in high schoold told me, I am not 100% sure and am ok to accept if I am wrong
+    // this is something my teacher in high schoold told me, I am not 100% sure for it and I'm ok to accept if I am wrong
 
+    // declaration of variable, declaring till next =====================================================================
     srand(time(0));           // to return a random number in real time
-    int dRandom = rand() % 5; // generate random number
+    int dRandom = rand() % 7; // generate random number (%7 stands as range)
 
-    // list of possible words used in the game
+    // list of possible words used in the game. The list can be modified
     char *sWords[] = {"banana", "apple", "GOAT", "jordan", "zhiki", "famnit", "primorska"};
 
+    // generating random word
     char *sRandomWord = sWords[dRandom];
-    // int len = strlen(sRandomWord); // taking the length of the eandom word
 
     char *sTempArr = malloc(strlen(sRandomWord) + 1); // this array represents the array that we need to fill
     for (int i = 0; sRandomWord[i] != '\0'; i++)      // asigning underscores for every element of the array
@@ -105,31 +105,24 @@ int main()
     char cNewLetter;  // the letter which the user is entering
     int dHangman = 0; // hangman stands for total mistakes (max 6)
 
-    char cBody[7]; // parts of the body, used to draw the figure,
-    // assigning blank spaces for each element of the body array
-    // because the first time we draw the hangman it needs to be totally empty
-    for (int i = 0; i < 7; i++)
+    char cBody[7];              // parts of the body, used to draw the figure,
+    for (int i = 0; i < 7; i++) // assigning blank spaces for each element of the body array
         cBody[i] = ' ';
 
     // this also is to be continued..:(
-    // char sWrongLetters[6] = ""; // remembering the mistaken letters
-
-    // for the function i need to finish
-    // int flag = 1;
+    char sWrongLetters[6] = ""; // remembering the mistaken letters
+    // end declaration of variables======================================================================================
 
     // here starts the game, it goes untill number of mistakes are less than 6
     while (dHangman <= 6)
     {
-        // for the function I need to finish
-        //  if (flag = 0)
-        //      break;
         //  drawing the hangman using function
         draw_hangman(cBody);
 
-        // to be continued line of code...
-        //  printf("Missed letters: %s\n", sWrongLetters);
+        // to be continued line of code... keeping track og missed letters
+        printf("Missed letters: %s\n", sWrongLetters);
 
-        // print the word with underscores, letters that are guessed will be displayed
+        // print the word with underscores, letters that are guessed will also be displayed
         print_blank_word(sTempArr);
 
         // asking the user for input
@@ -137,18 +130,18 @@ int main()
         scanf(" %c", &cNewLetter);
 
         // checking if the user entered correct letter
-        if (check_letter(sRandomWord, cNewLetter, sTempArr) != 1)
+        if (check_letter(sRandomWord, cNewLetter, sTempArr) != 1) // if true, the user entered wrong letter
         {
-            dHangman++;
-            // reasigning values to body parts
-            body_parts(dHangman, cBody);
+            dHangman++;                  // increasing hangman, mistakes
+            body_parts(dHangman, cBody); // reasigning values to body parts
+            strncat(sWrongLetters, &cNewLetter, 1); //keep track of wrong letters entered by the user
         }
 
         int dCounter = 0; // counter that counts number of underscores
         for (int s = 0; s < strlen(sRandomWord); s++)
-            if (sTempArr[s] == '_')
+            if (sTempArr[s] == '_') // if there are no underscored, the user guessed the word, then break the loop
                 dCounter++;
-        if (dCounter == 0 || dHangman == 6)
+        if (dCounter == 0 || dHangman == 6) // also, if the value of hangman is 6 break the loop, the user lost
             break;
     }
 
@@ -158,6 +151,7 @@ int main()
         printf("You lost :(\n");
     else
         printf("You win :)\n");
+    printf("Wrong letters: %s\n", sWrongLetters);
     draw_hangman(cBody);
     printf("The correct word was: ");
     print_blank_word(sRandomWord);
