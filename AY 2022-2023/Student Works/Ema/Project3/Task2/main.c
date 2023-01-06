@@ -2,7 +2,7 @@
 #include <string.h>
 #include <stdlib.h> 
 #include <time.h>   
-#include <ctype.h>  //we ned this library to use isalpha function
+#include <ctype.h>  //we need this library to use isalpha function
 
 #define WordLength 25 
 #define MaxGuesses 3
@@ -53,7 +53,7 @@ int main()
 
 
     
-     // to make sure a player only inputs the letters 
+     //since I only want player to input letters,  I used isaplha function which checks if the input is in an alphabet
 
     if(!isalpha (Letter)){
       printf("The game accepts letters only. \n");
