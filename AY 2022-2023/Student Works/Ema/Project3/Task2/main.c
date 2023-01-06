@@ -82,7 +82,7 @@ int main()
 
   
 
-  ///if the letters are not found they have 3 mistakes available and with each mistake a part of the hnagman is drawn
+  //if the letters are not found they have 3 mistakes available and with each mistake a part of the hanggman is drawn
 
   	else {
 
