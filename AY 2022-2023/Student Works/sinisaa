@@ -1,0 +1,65 @@
+#include <stdio.h>
+#include <ctype.h>
+
+// function prototypes
+void go_to_floor(int current_floor, int destination_floor);
+int get_destination_floor();
+
+int main()
+{
+    // minimum and maximum floor numbers
+    const int MIN_FLOOR = 0;
+    const int MAX_FLOOR = 5;
+
+    // initial floor is ground floor
+    int current_floor = MIN_FLOOR;
+
+    while (1)  // infinite loop
+    {
+        int destination_floor = get_destination_floor();
+
+        // validate destination floor
+        if (destination_floor < MIN_FLOOR || destination_floor > MAX_FLOOR)
+        {
+            printf("Invalid floor number. Please enter a valid floor number.\n");
+            continue;  // go back to the start of the loop
+        }
+
+        go_to_floor(current_floor, destination_floor);
+
+        // update current floor
+        current_floor = destination_floor;
+    }
+
+    return 0;
+}
+
+// function to go to the specified floor
+void go_to_floor(int current_floor, int destination_floor)
+{
+    printf("Going from floor %d to floor %d\n", current_floor, destination_floor);
+
+    if (current_floor < destination_floor)
+    {
+        // going up
+        for (int i = current_floor+1; i <= destination_floor; i++)
+            printf("Passing through floor %d\n", i);
+    }
+    else
+    {
+        // going down
+        for (int i = current_floor-1; i >= destination_floor; i--)
+            printf("Passing through floor %d\n", i);
+    }
+}
+
+// function to get the destination floor from the user
+int get_destination_floor()
+{
+    int destination_floor;
+
+    printf("Enter destination floor: ");
+    scanf("%d", &destination_floor);
+
+    return destination_floor;
+}
