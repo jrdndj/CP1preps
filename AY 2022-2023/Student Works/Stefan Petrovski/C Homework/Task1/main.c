@@ -89,10 +89,44 @@ void moveElevator(int *currentFloor, char destination)
             destinationFloor = 5;
             break;
     }
-}
+}   //comment here when putting the two parts together delete this '}' bracket !!!. When testing it by itself leave it in the code.
 
 Exlenation: 
 This first part of the code is compilable version of the code. There are no errors. But the thing is that no matter what input you insert 
 it doesn't recognise the floors and it returns "you are currently on the floor 0" or basically the movement function is not fully completed. So no matter
 what input you insert you're on the floor 0. Of course of the validated inputs. If you put something invalid it gives back a message that you have entered invalid input.
 The Exit option works. 
+    
+    
+    ********SECOND PART STARTS HERE*********
+    
+    
+    if (destinationFloor > *currentFloor) {//statement where we check if the destinationFloor is bigger than the currentFloor.
+        printf("Moving up...\n"); //inform the user that the elevator is moving up.
+       
+        /*loop through the variables and print each floor in between 
+        the previous and the newly chosen one*/
+
+        for (int i = *currentFloor + 1; i <= destinationFloor; i++) {
+            printf("Floor %d\n", i); //inform the user of the current floor.
+        }
+   
+    } else if (destinationFloor < *currentFloor) { //statement where we check if the destinationFloor is smaller than the currentFloor.
+    
+        printf("Moving down...\n"); //inform the user that the elevator is moving down. 
+
+        /*loop through the variables and print each floor in between 
+        the previous and the newly chosen one*/
+        
+        for (int i = *currentFloor - 1; i >= destinationFloor; i--) { 
+            printf("Floor %d\n", i); //inform the user of the current floor.
+        }
+    }
+  // Update the current floor of the elevator
+    *currentFloor = destinationFloor;
+ }   
+
+
+Explenation:
+By adding this part to the code it fixes/completes the previous part of the code and it works properly. 
+Meaning, it recognises the floors properly when the user inputs them. Including the 3 basement floors. 
