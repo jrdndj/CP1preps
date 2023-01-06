@@ -1,4 +1,7 @@
 # CP1preps
+
+# Homework related pull requests are currently on-hold and will only be merged by the deadline. 
+
 resources, scripts and other materials for CP1 
 
 ## File Organization
