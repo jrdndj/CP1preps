@@ -1,0 +1,96 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+
+// These are five words that will soon be randomly chosen. This is a pointer of an array of characters
+const char *words[] = {"coal", "carton", "pizza", "anime", "cupid"};
+
+// Maximum number of incorrect guesses that are allowed, 7.
+const int MaxIncorrect = 8;
+
+/*
+Declaring two void functions (Void functions have no return!).
+One void function is for drawing the hangman and the other
+for the playing the hangman (Which is the more important part since it consists of all the logic).
+*/
+void DrawingHangman(int Incorrect);
+void PlayingHangman();
+
+// main
+int main(){ 
+
+    srand(time(0)); // This generates a random integer number in order to select a word from the pointer of an array of characters
+                    // also known as "const char *words[] = {"coal", "carton", "pizza", "anime", "cupid"};"
+
+    PlayingHangman(); // PlayingHangman is a function, we are just calling it to the main part
+    return 0;
+}
+
+//
+void DrawingHangman(int Incorrect){
+    // We draw the hangman by using an array of strings.
+    // Maximum incorrect number of guesses is 6.
+    const char *hangman[] = {
+        " _________\n", // 1st incorrect guess
+        " |/    |\n",   // 2nd incorrect guess
+        " |     0\n",   // 3rd incorrect guess
+        " |    /|\\\n", // 4th incorrect guess
+        " |     |\n",   // 5th incorrect guess
+        " |    / \\\n", // 6th incorrect guess
+        "_|_______\n"}; // 7th incorrect guess
+
+    // The hangman is being printed by drawing it up to the current incorrect guess count
+    // by using the array below so that it will count how many incorrect guesses it has.
+    for (int i = 0; i < Incorrect; i++)
+        printf("%s", hangman[i]);
+}
+
+void PlayingHangman(){
+    // We choose a random word of the array by the usage of the pointer so it selects one of the five words
+    // we have mentioned: {"coal", "carton", "pizza", "anime", "cupid"}
+    const char *word = words[rand() % 5];
+    // Putting each of the characters in a string length of the word
+    int WordLen = strlen(word);
+    // We create an array of underscores/blank spaces as the same length as the word by using a for-loop to count them
+    char Blank[WordLen + 1];
+    for (int i = 0; i < WordLen; i++)
+        Blank[i] = '_';
+    Blank[WordLen] = '\0';
+
+    int Incorrect = 0; // Number of incorrect guesses
+    int CorGuess = 0;  // Number of correct guesses
+
+    // We use this while loop so tha t
+    while (Incorrect < MaxIncorrect){
+        printf("Word: %s\n", Blank); // The word in blank spaces. E.g. => _ _ _ _ _
+        DrawingHangman(Incorrect);   // The hangman will draw with each incorrect guess, step by step until the game is over
+
+        char Letter;
+        printf("Guess a letter: \n"); // The user guesses a letter
+        scanf(" %c", &Letter);        // The user enters a letter/character
+
+        int Cor = 0;                      // New integet set to value 0 for the correct guesses
+        for (int i = 0; i < WordLen; i++) // Counting every letter of the word
+        {
+            if (word[i] == Letter) // if the word is equal to the entered letter of the usser
+            {
+                Blank[i] = Letter; // fill the blank space/underscore with the entered letter
+                CorGuess++;        // Length of correct guesses
+                Cor = 1;           // Correct guess is set to one
+            }
+        } // end for
+
+        if (!Cor)        // If the entered letter is not correct
+            Incorrect++; // Add it as an incorrect letter, AKA start drawing the hangman for each incorrect character input
+
+        // if the entire correct guessed length is equal to the word, then the user wins and a message is being printed out
+        if (CorGuess == WordLen){
+            printf("Congratulations! You won! Victory! Woohoo!\n");
+            return; // Using this return, so the program stops when the user has correctly guessed the word/won.
+        }
+    }
+
+    // if we reach this point, the player has lost
+    printf("Sorry, you lost! :( The word was: %s.\n", word);
+}
