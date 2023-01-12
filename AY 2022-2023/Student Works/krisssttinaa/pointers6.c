@@ -9,8 +9,16 @@ void swap(int *p1,int *p2){
 }
 
 int main(){
-	int a=5;
-	int b=6;
+	//declare
+	int a;
+	int b;
+
+	//ask for input
+    printf("value for a: ");
+    scanf("%d", &a);
+    printf("value for b: ");
+    scanf("%d", &b);
+
 	swap(&a,&b);
     
 	return 0;
