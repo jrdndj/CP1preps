@@ -7,6 +7,18 @@
 //we first define the number of allowed mistakes
 #define MAX_MISTAKES 6  
 
+void drawHangman(int mistakes) {
+    char* stages[MAX_MISTAKES + 1] = {
+        "   ____\n  |    |\n  |    \n  |   \n__|__",
+        "   ____\n  |    |\n  |    O\n  |   \n__|__",
+        "   ____\n  |    |\n  |    O\n  |    |\n__|__",
+        "   ____\n  |    |\n  |    O\n  |   /|\n__|__",
+        "   ____\n  |    |\n  |    O\n  |   /|\\\n__|__",
+        "   ____\n  |    |\n  |    O\n  |   /|\\\n__|__ /",
+    };
+    printf("%s\n", stages[mistakes]);
+}
+
 int main() {
   //list of possible words
   const char *words[] = {"famnit", "bioinformatics", "dorm", "seaside", "computerpracticum"};
@@ -24,9 +36,10 @@ int main() {
   for (int i = 0; i < word_length; i++) {
     current_state[i] = '_';
   }
-
+ 
   //game is going on until the full word has been guessed or not
   while (strcmp(word, current_state) != 0 && mistakes < MAX_MISTAKES) {
+    drawHangman(mistakes);
     printf("Current state: %s\n", current_state);
     printf("Enter a letter: ");
 
