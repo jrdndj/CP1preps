@@ -23,18 +23,26 @@ int main() {
     char cFloor = 'G'; //starting at G floor
     char destinationFloor;
     int passengernum;
+    
     printf("Welcome. You are currently on the %c floor.\n", cFloor);
     printf("How many passengers are there : ");
     scanf("%d", &passengernum);
+    
     printf("To which floor would you like to go? (G, 1, 2, 3, 4, 5, B1, B2, B3): ");
     destinationFloor = getInput();
     moveElevator(cFloor, destinationFloor, &passengernum);
-    while(passengernum>0){
+    
+    while(passengernum>1){
         printf("Passenger count : %d\n", passengernum);
         printf("Which floor would you like to go to next? (G, 1, 2, 3, 4, 5, B1, B2, B3): ");
         destinationFloor = getInput();
         moveElevator(cFloor, destinationFloor, &passengernum);
     }
-    printf("All passengers have been dropped off.\n");
+    
+    if(passengernum==1){
+    printf("Passenger count : %d\n", passengernum);
+    printf("The last passenger got off at %c floor\n",cFloor);
+    }
+    
     return 0;
 }
