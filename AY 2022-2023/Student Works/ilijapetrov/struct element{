@@ -1,0 +1,19 @@
+struct element{
+	int val;
+	struct element *next
+}
+
+struct element e1, e2, e3 , e4, head, tail, temp
+
+head.next=&e1;
+e1.val= 420;
+e1.next= &e2;
+e2.val= 69;
+e2.next= &e3;
+e3.val= 27;
+e3.next= NULL;
+tail= e.next;
+
+//so if i want to sort them
+temp= &e1;
+head.next= &e3; 
