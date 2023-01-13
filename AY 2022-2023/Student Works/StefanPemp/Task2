@@ -22,7 +22,9 @@ int main(){
 
     srand(time(0)); // This generates a random integer number in order to select a word from the pointer of an array of characters
                     // also known as "const char *words[] = {"coal", "carton", "pizza", "anime", "cupid"};"
-
+                    // SOURCE FROM STACKOVERFLOW ABOUT srand(time(0)) USAGE:
+                    // https://stackoverflow.com/questions/70055277/how-to-choose-a-random-character-from-an-array-in-c
+                    
     PlayingHangman(); // PlayingHangman is a function, we are just calling it to the main part
     return 0;
 }
@@ -49,14 +51,17 @@ void DrawingHangman(int Incorrect){
 void PlayingHangman(){
     // We choose a random word of the array by the usage of the pointer so it selects one of the five words
     // we have mentioned: {"coal", "carton", "pizza", "anime", "cupid"}
-    const char *word = words[rand() % 5];
+    const char *word = words[rand() % 5];  // SOURCE FROM STACKOVERFLOW ABOUT rand() % number USAGE (Same as the one for srand(time(0))): 
+                                           // https://stackoverflow.com/questions/70055277/how-to-choose-a-random-character-from-an-array-in-c
+                
     // Putting each of the characters in a string length of the word
     int WordLen = strlen(word);
     // We create an array of underscores/blank spaces as the same length as the word by using a for-loop to count them
     char Blank[WordLen + 1];
     for (int i = 0; i < WordLen; i++)
         Blank[i] = '_';
-    Blank[WordLen] = '\0';
+    Blank[WordLen] = '\0'; // SOURCE FROM STACK OVERFLOW ABOUT \0 USAGE: 
+                           // https://stackoverflow.com/questions/40821419/when-why-is-0-necessary-to-mark-end-of-an-char-array
 
     int Incorrect = 0; // Number of incorrect guesses
     int CorGuess = 0;  // Number of correct guesses
