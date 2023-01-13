@@ -19,21 +19,24 @@ int getInput(){
 	//reciving the char input from the user
 	scanf(" %c" , &cInput);
 
-	//checking if the input is valid
+	//checking if the input is valid I
+	//https://stackoverflow.com/questions/1478932/check-if-user-inputs-a-letter-or-number-in-c
 	if(cInput=='G' || cInput=='1' || cInput=='2' || cInput=='3' || cInput=='4' || cInput=='5'){
 
 		//substracting from cInput a character '0' so we will recieve an integer
+		//i used a similar way here by using this link https://stackoverflow.com/questions/628761/convert-a-character-digit-to-the-corresponding-integer-in-c
 		dInput=cInput - '0';
 
 		//return value will be the converted one
 		return dInput;
 
 	}//end-if
-	else if(cInput=='B' && getchar() == '1')
-
+	else if(cInput=='B' && getchar() == '1')  //  I used the same logic from this link https://www.tutorialspoint.com/c_standard_library/c_function_getchar.htm
+	
+         
 	{
 		//converting the basement B1 to a value -1
-		return -1;
+		return -1;   
 	}//else-if
 	else if(cInput=='B' && getchar() == '2'){
 
@@ -59,6 +62,7 @@ void ask_user()
 	scanf("%d", &dPressButton);
 
 	//using switch case to give the user two options to choose from
+	//https://stackoverflow.com/questions/9259648/how-to-break-an-infinite-for-loop-in-c this gave me an inspiration to use switch an break;
 	switch(dPressButton){
 		case 1:
 			printf("\nPassanger exits!");
@@ -143,7 +147,7 @@ int main(){
 		}//end-if
 
 		//if the destination is a Ground(converted to 0), or any floor smaller or equal to the 5th floor
-		else if( (dDestitnation ==1) || (dDestitnation==2) || (dDestitnation==3) || (dDestitnation==4) || (dDestitnation==5) ){
+		else if((dDestination==0) || (dDestitnation ==1) || (dDestitnation==2) || (dDestitnation==3) || (dDestitnation==4) || (dDestitnation==5) ){
 
 			//calling the function to move the elevator
 			MoveElevator(dFloor,dDestitnation);
