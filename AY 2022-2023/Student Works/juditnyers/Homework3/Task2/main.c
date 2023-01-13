@@ -5,6 +5,8 @@
 
 //HANGMAN GAME
 
+//Refernce link: https://youtu.be/sitn00wQMrg
+
 int main() { 
 	
 srand(time(NULL)); //helps the random func always a different random no.
