@@ -109,7 +109,7 @@ void Result(){
 int main(){
 
 
-//generatting a random number using function time
+//generatting a random number using function time I used https://stackoverflow.com/questions/822323/how-to-generate-a-random-int-in-c
 srand(time(NULL));
 
 	//filling the array with words to guess
@@ -121,7 +121,7 @@ srand(time(NULL));
 		"warmness"
 	};
 
-	//gives us a random word from the array
+	//gives us a random word from the array  https://stackoverflow.com/questions/46675878/random-number-from-array-c
 	dRandomIndex= rand() % 6;
 	int dIndex=0;
 	int mistakes=0;
@@ -135,7 +135,12 @@ srand(time(NULL));
 	//getting the length of the world we have selected
 	int dLenWord=strlen(dWordsArray[dRandomIndex]);
 
-	//we need a method to keep track which character are correct and which are not correct
+	//we need a method to keep track which character are correct and which are not correct 
+	//the idea I used here for an emty array is from this series of video tutorials and then tried to write it and modify it in my own way 
+	//https://www.youtube.com/watch?v=sitn00wQMrg
+	//https://www.youtube.com/watch?v=qYQC-__8hO8
+	//https://www.youtube.com/watch?v=hhGGsjyEUZQ
+	
 	int cLetterGuessed[10]={0,0,0,0,0,0,0,0,0,0};
 
 	//if the user quits
@@ -178,7 +183,8 @@ srand(time(NULL));
 		printf("Enter a guess letter:");
 		fgets(guess,20,stdin);
 
-		//condition to check if the first entry into the program is a number 
+		//condition to check if the first entry into the program is a number  
+		/
 		if(guess[0]>='0' && guess[0]<='9')
 		{
 			printf("\n You enetered a number!Please eneter a small letter!");
