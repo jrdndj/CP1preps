@@ -8,6 +8,12 @@
 
 int current_floor = 0;
 char*  direction = "up";  //the elevator is moving up
+
+
+
+
+//https://www.tutorjoes.in/c_programming_tutorial/present_lift_position_using_switch_in_c  
+//i used this to help myself  with these two switches
  
 int Floor(char WantedFloor[]){
 	int floor;
@@ -173,5 +179,3 @@ while(1){
 
 	return 0;
 }
-
-
