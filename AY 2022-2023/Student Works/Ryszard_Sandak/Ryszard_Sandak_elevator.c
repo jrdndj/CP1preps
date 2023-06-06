@@ -24,6 +24,7 @@ int get_floor_choice() {
     }
 
     // Convert string input to integer using strtol() function
+    //https://www.tutorialspoint.com/c_standard_library/c_function_strtol.htm
     char *endptr;
     int floor = (int)strtol(choice, &endptr, 10);
     if (*endptr != '\0') {
