@@ -6,7 +6,7 @@
 #define WORD_COUNT 10
 #define MAX_WORD_LENGTH 20
 #define MAX_TRIES 6
-
+//first 6 words were chosen from difficult hangman words google search, last 4 were some i just had in mind
 char word_list[WORD_COUNT][MAX_WORD_LENGTH] = {
     "affix", "askew", "awkward", "funny", "luxury", "swivel", "vodka", "gin", "beer", "whiskey"
 };
@@ -56,7 +56,7 @@ int generate_random_number(int n) {
 }
 
 int main() {
-    int n = WORD_COUNT; // Maximum value (exclusive)
+    int n = WORD_COUNT; // Maximum value
     int random_index;
     int word_length;
     char current_word[MAX_WORD_LENGTH];
@@ -72,12 +72,14 @@ int main() {
     random_index = generate_random_number(n);
 
     // Save randomly chosen word to variable
+    // strcpy taken from https://www.programiz.com/c-programming/library-function/string.h/strcpy
     strcpy(current_word, word_list[random_index]);
 
     // Determine the length of the current word
     word_length = strlen(current_word);
 
     // Initialize the guessed word with dashes
+    // https://www.geeksforgeeks.org/memset-c-example/
     memset(guessed_word, '-', word_length);
     guessed_word[word_length] = '\0';
 
