@@ -31,13 +31,6 @@ int getNumber() { // getNumber Function for user Input
     return dInput; // Return value int since function is Int
 }
 
-
-void sumNumbers(int dnum1, int dnum2) { // sumNumbers function for Sum of 2 inserted numbers
-    int sum; // variable Declaration
-     sum = dnum1 + dnum2; // Sum Formula
-     printf("\nSum is %d", sum); // Sum Print out to User
-}
-
 void diffNumbers(int dnum1, int dnum2) { // diffNumbers function for the difference of 2 inserted numbers
     int dif; // variable Declaration
      dif = dnum1 - dnum2; // difference Formula
